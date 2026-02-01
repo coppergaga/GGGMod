@@ -15,19 +15,19 @@ namespace GGGMod.Tools {
 
         private static void Db_Initialize_Postfix() {
             foreach (BuildingInfo buildingInfo in Instance.planScreenInfos) {
-                if (buildingInfo.buildingID is null) { return; }
+                if (!buildingInfo.IsInfoValid) { return; }
 
-                if (buildingInfo.techID != null) {
+                if (buildingInfo.IsAddTech) {
                     AddBuildingToTech(buildingInfo.techID, buildingInfo.buildingID);
                 }
 
-                if (buildingInfo.category != null) {
+                if (buildingInfo.IsAddPlan) {
                     AddPlanScreen(buildingInfo.category, buildingInfo.subcategoryID, buildingInfo.buildingID);
                 }
             }
         }
         /// <summary>
-        ///     添加建筑到研究中
+        /// 添加建筑到研究中
         /// </summary>
         public static void AddBuildingToTech(string techID, string buildingID) {
             var tech = Db.Get().Techs?.TryGet(techID);
@@ -49,22 +49,24 @@ namespace GGGMod.Tools {
         }
 
         public static void AddBuildings(BuildingInfo bi) {
+            if (bi.onlyDlc1 && !DlcManager.IsExpansion1Active()) {
+                return;
+            }
             Instance.planScreenInfos.Add(bi);
         }
     }
 
     public class BuildingInfo {
-        public bool plan;
-        public bool tech;
+        public bool IsInfoValid => buildingID != null;
+        public bool IsAddPlan => category != null;
+        public bool IsAddTech => techID != null;
         public bool onlyDlc1;
 
         public HashedString category;
         public string techID;
         public string buildingID;
         public string subcategoryID;
-        public BuildingInfo(string buildingID, HashedString category, string subcategoryID = null, string techID = null, bool plan = true, bool tech = true, bool onlyDlc1 = false) {
-            this.plan = plan;
-            this.tech = tech;
+        public BuildingInfo(string buildingID, HashedString category, string subcategoryID = null, string techID = null, bool onlyDlc1 = false) {
             this.onlyDlc1 = onlyDlc1;
             this.category = category;
             this.techID = techID;
