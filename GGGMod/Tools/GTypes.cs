@@ -63,7 +63,8 @@
             public static HashedString HEP = new HashedString("HEP");
         }
         public class TechID {
-            public static string LiquidTemperature = "LiquidTemperature";   // 
+            public static string LiquidTemperature = "LiquidTemperature";   //
+            public static string Agriculture = "Agriculture";
         }
     }
 }

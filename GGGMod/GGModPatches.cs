@@ -9,14 +9,18 @@ namespace GGGMod {
             GLocalization.RegisterLoad(typeof(GGGMod.STRINGS));
             GLocalization.RegisterAddStrings(typeof(GGGMod.STRINGS.BUILDINGS));
             GBuilding.Setup(mod, harmony);
-            GBuilding.AddBuildings(
-                new BuildingInfo(
-                    GGGMod.LiquidCooler.LiquidCoolerConfig.ID,
-                    GTypes.PlanType.Utilities,
-                    "GGGMod",
-                    GTypes.TechID.LiquidTemperature
-                )
-            );
+            GBuilding.AddBuildings(new BuildingInfo(
+                LiquidCooler.LiquidCoolerConfig.ID,
+                GTypes.PlanType.Utilities,
+                "GGGMod",
+                GTypes.TechID.LiquidTemperature
+            ));
+            GBuilding.AddBuildings(new BuildingInfo(
+                BuildableWildPlant.BuildableWildPlantConfig.ID,
+                GTypes.PlanType.Food,
+                "GGGMod",
+                GTypes.TechID.Agriculture
+            ));
         }
     }
 }

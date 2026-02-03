@@ -31,6 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BuildableWildPlant\BuildableWildPlant.cs" />
+    <Compile Include="BuildableWildPlant\BuildableWildPlantConfig.cs" />
     <Compile Include="GGModPatches.cs" />
     <Compile Include="GGModStrings.cs" />
     <Compile Include="LiquidCooler\LiquidCoolerConfig.cs" />
