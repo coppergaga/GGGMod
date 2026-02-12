@@ -18,6 +18,7 @@ namespace GGGMod.Tools {
             );
         }
         private static void Localization_Initialize_Patch() {
+            Localization.RegisterForTranslation(typeof(GGGMod.STRINGS));
             foreach (var type in Instance.loadTypes) Load(type, Instance.Mod);
             foreach (var type in Instance.addStringsTypes) CreateLocStringKeys(type);
         }

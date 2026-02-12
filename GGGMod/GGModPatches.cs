@@ -15,12 +15,6 @@ namespace GGGMod {
                 "GGGMod",
                 GTypes.TechID.LiquidTemperature
             ));
-            GBuilding.AddBuildings(new BuildingInfo(
-                BuildableWildPlant.BuildableWildPlantConfig.ID,
-                GTypes.PlanType.Food,
-                "GGGMod",
-                GTypes.TechID.Agriculture
-            ));
         }
     }
 }
