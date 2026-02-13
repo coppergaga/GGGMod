@@ -16,9 +16,9 @@ namespace GGGMod.AnimalFarm {
         private readonly HashSet<Tag> mCannotDropCache = new HashSet<Tag>();
         private readonly HashSet<Tag> mCannotShearCache = new HashSet<Tag>();
 
-        private const float POOP_SOLID_BASE = 20f;
-        private const float POOP_LIQUID_BASE = 40f;
-        private const float POOP_GAS_BASE = 5f;
+        private const float POOP_SOLID_BASE = 5f;
+        private const float POOP_LIQUID_BASE = 10f;
+        private const float POOP_GAS_BASE = 1f;
 
         public void SimStoreData(List<StoredData> storedAnimals, float incubationEffect) {
             bool hasButcher = false;
@@ -83,7 +83,7 @@ namespace GGGMod.AnimalFarm {
                 }
             }
 
-            float multiplier = Mathf.Ceil(master.ProduceEffect);
+            float multiplier = (float)System.Math.Round(master.ProduceEffect, 2);
             float uptime = master.LastCycleUptime;
             foreach (var kvp in mDropsRec) {
                 if (kvp.Value <= 0) { continue; }

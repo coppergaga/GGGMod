@@ -100,6 +100,7 @@ namespace GGGMod.AnimalFarm {
             int curCycle = GameClock.Instance.GetCycle();
             if (curCycle > _lastCycle) {
                 isNeedUpdateNewDay = true;
+                _lastCycle = curCycle;
             }
         }
 
@@ -144,7 +145,7 @@ namespace GGGMod.AnimalFarm {
         }
 
         private void DatafyAndDestroy(int extraCount) {
-            if (extraCount <= 0) { return; }
+            if (extraCount < 0) { return; }
             if (pickupables.Count == 0) { return; }
             int removedCnt = 0;
             for (int i = 0; i < pickupables.Count; i++) {
