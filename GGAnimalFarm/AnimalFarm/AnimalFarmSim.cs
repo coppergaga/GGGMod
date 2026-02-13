@@ -16,9 +16,10 @@ namespace GGGMod.AnimalFarm {
         private readonly HashSet<Tag> mCannotDropCache = new HashSet<Tag>();
         private readonly HashSet<Tag> mCannotShearCache = new HashSet<Tag>();
 
-        private const float POOP_SOLID_BASE = 5f;
-        private const float POOP_LIQUID_BASE = 10f;
-        private const float POOP_GAS_BASE = 1f;
+        private const float POOP_SOLID_BASE = 10f;
+        private const float POOP_LIQUID_BASE = 5f;
+        private const float POOP_GAS_BASE = 5f;
+        private const float DAILY_PROBABLY_DROP_MULTIPLIER_FIX = 0.2f;
 
         public void SimStoreData(List<StoredData> storedAnimals, float incubationEffect) {
             bool hasButcher = false;
@@ -157,7 +158,7 @@ namespace GGGMod.AnimalFarm {
             gameObject.transform.SetPosition(Grid.CellToPosCCC(cell, Grid.SceneLayer.Ore));
             PrimaryElement component2 = gameObject.GetComponent<PrimaryElement>();
             component2.Temperature = master.Temperature;
-            component2.Mass = Mathf.Ceil(dropTuple.second * (float)animalNum / 10f);
+            component2.Mass = Mathf.Ceil(dropTuple.second * (float)animalNum * DAILY_PROBABLY_DROP_MULTIPLIER_FIX);
             gameObject.SetActive(value: true);
             Vector2 initial_velocity = new Vector2(Random.Range(-1f, 1f) * 1f, Random.value * 2f + 2f);
             if (GameComps.Fallers.Has(gameObject)) {
@@ -169,7 +170,7 @@ namespace GGGMod.AnimalFarm {
 
         private void SpawnDailyPoop(int animalNum, KeyValuePair<Tag, float> produceKV, float multiplier) {
             Tag pe = produceKV.Key;
-            float convertRate = produceKV.Value * multiplier;
+            float convertRate = /*produceKV.Value **/ (float)animalNum * multiplier;
             string text = null;
             Element element = ElementLoader.GetElement(pe);
             Sprite mainIcon = null;
@@ -186,20 +187,20 @@ namespace GGGMod.AnimalFarm {
                 GameObject pePrefab = Assets.GetPrefab(pe);
                 GameObject pePrefabInst = GameUtil.KInstantiate(pePrefab, Grid.CellToPos(dropToCell, CellAlignment.Top, Grid.SceneLayer.Ore), Grid.SceneLayer.Ore);
                 PrimaryElement peComp = pePrefabInst.GetComponent<PrimaryElement>();
-                peComp.Mass = peComp.Mass * animalNum;
+                peComp.Mass = peComp.Mass * convertRate;
                 peComp.Temperature = temperature;
                 pePrefabInst.SetActive(value: true);
                 text = pePrefabInst.GetProperName();
                 mainIcon = global::Def.GetUISprite(pePrefab).first;
             }
             else if (element.IsLiquid) {
-                FallingWater.instance.AddParticle(dropToCell, element.idx, POOP_LIQUID_BASE * animalNum * convertRate, temperature, byte.MaxValue, 0, skip_sound: true);
+                FallingWater.instance.AddParticle(dropToCell, element.idx, POOP_LIQUID_BASE * convertRate, temperature, byte.MaxValue, 0, skip_sound: true);
             }
             else if (element.IsGas) {
-                SimMessages.AddRemoveSubstance(dropToCell, element.idx, CellEventLogger.Instance.ElementConsumerSimUpdate, POOP_GAS_BASE * animalNum * convertRate, temperature, byte.MaxValue, 0);
+                SimMessages.AddRemoveSubstance(dropToCell, element.idx, CellEventLogger.Instance.ElementConsumerSimUpdate, POOP_GAS_BASE * convertRate, temperature, byte.MaxValue, 0);
             }
             else {
-                element.substance.SpawnResource(Grid.CellToPosCCC(dropToCell, Grid.SceneLayer.Ore), POOP_SOLID_BASE * animalNum * convertRate, temperature, byte.MaxValue, 0);
+                element.substance.SpawnResource(Grid.CellToPosCCC(dropToCell, Grid.SceneLayer.Ore), POOP_SOLID_BASE * convertRate, temperature, byte.MaxValue, 0);
             }
 
             PopFX popFX = PopFXManager.Instance.SpawnFX(mainIcon, PopFXManager.Instance.sprite_Plus, text, master.transform, Vector3.zero);

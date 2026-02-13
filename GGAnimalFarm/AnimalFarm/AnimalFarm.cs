@@ -19,7 +19,8 @@ namespace GGGMod.AnimalFarm {
         private static StatusItem MyStatusItem;
         private static StatusItemCategory MyStatusCategory = new StatusItemCategory("GGAnimalFarm", Db.Get().StatusItemCategories, "Farm Capacity");
 
-        private const int detectRange = 4;
+        public const int detectRangeX = 4;
+        public const int detectRangeY = 5;
         private static readonly CellOffset cavityOffset = new CellOffset(0, 1);
         private static readonly List<Tag> ignoredTags = new List<Tag>() { 
             GameTags.Stored, GameTags.PickupableStorage, GameTags.Trapped, GameTags.StoredPrivate, GameTags.Dead,
@@ -185,8 +186,8 @@ namespace GGGMod.AnimalFarm {
             pickupables.Clear();
             Grid.CellToXY(cavityCell, out int x, out int y);
             GameScenePartitioner.Instance.VisitEntries(
-                x - detectRange, y - 1,
-                detectRange * 2 + 1, detectRange * 2,
+                x - detectRangeX, y - 1,
+                detectRangeX * 2 + 1, detectRangeY,
                 GameScenePartitioner.Instance.pickupablesLayer,
                 AsyncUpdateVisitor,
                 this

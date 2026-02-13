@@ -157,10 +157,11 @@ namespace GGGMod.AnimalFarm {
                         adultPrefabTag = bmd.adultPrefab.Name;
                         adultThreshold = bmd.adultThreshold;
 
-                        var adultPrefab = Assets.GetPrefab(adultPrefabTag);
+                        var adultPrefab = Assets.GetPrefab(bmd.adultPrefab);
                         adultProperName = adultPrefab.GetProperName();
                         var adultModifiers = adultPrefab.GetComponent<Klei.AI.Modifiers>();
                         if (adultModifiers != null) { maxAge = adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Age.maxAttribute); }
+                        //if (adultModifiers != null) { Debug.Log($"ggg===caluli {adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Calories.maxAttribute)}"); }
                     }
                 }
                 var eggInfos = new string[] { eggPrefabTag, babyPrefabTag, adultPrefabTag, adultThreshold.ToString(), maxAge.ToString(), baseIncubation.ToString(), eggProperName };

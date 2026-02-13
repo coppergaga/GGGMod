@@ -76,10 +76,10 @@ namespace GGGMod.AnimalFarm {
         private static void AddVisualizer(GameObject prefab) {
             RangeVisualizer rangeVisualizer = prefab.AddOrGet<RangeVisualizer>();
             rangeVisualizer.OriginOffset = new Vector2I(0, 0);
-            rangeVisualizer.RangeMin.x = -4;
-            rangeVisualizer.RangeMax.x = 4;
+            rangeVisualizer.RangeMin.x = -AnimalFarm.detectRangeX;
+            rangeVisualizer.RangeMax.x = AnimalFarm.detectRangeX;
             rangeVisualizer.RangeMin.y = 0;
-            rangeVisualizer.RangeMax.y = 8;
+            rangeVisualizer.RangeMax.y = AnimalFarm.detectRangeY;
             rangeVisualizer.BlockingTileVisible = true;
         }
     }
