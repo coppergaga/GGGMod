@@ -6,7 +6,7 @@ namespace GGGMod.AnimalFarm {
         public const string ID = "GgAnimalFarm";
         public override BuildingDef CreateBuildingDef() {
             var buildingdef = BuildingTemplates.CreateBuildingDef(
-                ID, 5, 4, "gganimalfarm_kanim", 100, 30f,
+                ID, 5, 3, "gganimalfarm_kanim", 100, 30f,
                 TUNING.BUILDINGS.CONSTRUCTION_MASS_KG.TIER5,
                 TUNING.MATERIALS.RAW_METALS,
                 1600f,
