@@ -153,7 +153,6 @@ namespace GGGMod.AnimalFarm {
                     babyProperName = babyPrefab.GetProperName();
                     var bmd = babyPrefab.GetDef<BabyMonitor.Def>();
                     if (bmd != null && bmd.adultPrefab != null) {
-                        //TestCollectDropAndPoopInfo(bmd.adultPrefab);
                         adultPrefabTag = bmd.adultPrefab.Name;
                         adultThreshold = bmd.adultThreshold;
 
@@ -161,7 +160,11 @@ namespace GGGMod.AnimalFarm {
                         adultProperName = adultPrefab.GetProperName();
                         var adultModifiers = adultPrefab.GetComponent<Klei.AI.Modifiers>();
                         if (adultModifiers != null) { maxAge = adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Age.maxAttribute); }
-                        //if (adultModifiers != null) { Debug.Log($"ggg===caluli {adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Calories.maxAttribute)}"); }
+                        //TestCollectDropAndPoopInfo(bmd.adultPrefab);
+                        //if (adultModifiers != null) {
+                        //    Debug.Log($"ggg===calories delta: {adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Calories.deltaAttribute)} " +
+                        //        $"max: {adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Calories.maxAttribute)}");
+                        //}
                     }
                 }
                 var eggInfos = new string[] { eggPrefabTag, babyPrefabTag, adultPrefabTag, adultThreshold.ToString(), maxAge.ToString(), baseIncubation.ToString(), eggProperName };
@@ -219,12 +222,23 @@ namespace GGGMod.AnimalFarm {
         }
 
         private void TestCollectDropAndPoopInfo(Tag prefabTag) {
-            if (Assets.GetPrefab(prefabTag).TryGetComponent<Butcherable>(out var comp)) {
-                Debug.Log($"[AnimalFarm]===ButcherDrops {prefabTag.Name} => " + string.Join(",", comp.drops.Select(kv => $"{kv.Key}:{kv.Value}")));
-            }
+            //if (Assets.GetPrefab(prefabTag).TryGetComponent<Butcherable>(out var comp)) {
+            //    Debug.Log($"[AnimalFarm]===ButcherDrops {prefabTag.Name} => " + string.Join(",", comp.drops.Select(kv => $"{kv.Key}:{kv.Value}")));
+            //}
             var ccmd = Assets.GetPrefab(prefabTag).GetDef<CreatureCalorieMonitor.Def>();
             if (ccmd == null || ccmd.diet?.producedTags == null) { return; }
             Debug.Log($"[AnimalFarm]===Poops {prefabTag.Name} => " + string.Join(",", ccmd.diet.producedTags.Select(kvp => $"{kvp.Key.Name}:{kvp.Value}")));
+            for (int i = 0; i < ccmd.diet.infos.Length; i++) {
+                var info = ccmd.diet.infos[i];
+                Debug.Log($"ggg===animal:{prefabTag.Name} diet infos =>\n" +
+                    $"consumeTags:{string.Join(",",info.consumedTags.Select(t=>t.Name))} " +
+                    $"caloriesPerKg:{info.caloriesPerKg} " +
+                    $"produceElement:{info.producedElement.Name} " +
+                    $"producedConversionRate:{info.producedConversionRate}");
+            }
+            //var consumeTags = ccmd.diet.consumedTags;
+            //var fistConsumeTag = consumeTags[0];    // 
+            //ccmd.diet.GetDietInfo()
         }
 
         private void FormattedInfoLog() {

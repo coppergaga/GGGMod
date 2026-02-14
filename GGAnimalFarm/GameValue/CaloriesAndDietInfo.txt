@@ -1,0 +1,888 @@
+﻿[08:00:25.824] [1] [INFO] [AnimalFarm]===Poops Chameleon => BleachStone:10
+[08:00:25.824] [1] [INFO] ggg===animal:Chameleon diet infos =>
+consumeTags:DewDrip caloriesPerKg:2000000 produceElement:BleachStone producedConversionRate:10
+[08:00:25.825] [1] [INFO] ggg===calories delta: -3333.333  max: 1E+07
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Drecko => Phosphorite:13.33
+[08:00:25.825] [1] [INFO] ggg===animal:Drecko diet infos =>
+consumeTags:SpiceVine,SwampLily,BasicSingleHarvestPlant caloriesPerKg:2666667 produceElement:Phosphorite producedConversionRate:13.33
+[08:00:25.825] [1] [INFO] ggg===calories delta: -3333.333 max: 1E+07
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops LightBug => 
+[08:00:25.825] [1] [INFO] ggg===animal:LightBug diet infos =>
+consumeTags:PrickleFruit,GrilledPrickleFruit,HardSkinBerry,CookedPikeapple,Phosphorite caloriesPerKg:240963.9 produceElement: producedConversionRate:1
+[08:00:25.825] [1] [INFO] ggg===calories delta: -66.66666 max: 320000
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Mole => Regolith:0.5,Dirt:0.5,IronOre:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Mole diet infos =>
+consumeTags:Regolith caloriesPerKg:1000 produceElement:Regolith producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Mole diet infos =>
+consumeTags:Dirt caloriesPerKg:1000 produceElement:Dirt producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Mole diet infos =>
+consumeTags:IronOre caloriesPerKg:1000 produceElement:IronOre producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===calories delta: -8000 max: 4.8E+07
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Oilfloater => CrudeOil:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Oilfloater diet infos =>
+consumeTags:CarbonDioxide caloriesPerKg:6000 produceElement:CrudeOil producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===calories delta: -200 max: 600000
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Puft => SlimeMold:0.95
+[08:00:25.825] [1] [INFO] ggg===animal:Puft diet infos =>
+consumeTags:ContaminatedOxygen caloriesPerKg:4000 produceElement:SlimeMold producedConversionRate:0.95
+[08:00:25.825] [1] [INFO] ggg===calories delta: -333.3333 max: 1200000
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Seal => Ethanol:1
+[08:00:25.825] [1] [INFO] ggg===animal:Seal diet infos =>
+consumeTags:SpaceTree caloriesPerKg:2500 produceElement:Ethanol producedConversionRate:1
+[08:00:25.825] [1] [INFO] ggg===animal:Seal diet infos =>
+consumeTags:Sucrose caloriesPerKg:3246.753 produceElement:Ethanol producedConversionRate:1.298701
+[08:00:25.825] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Squirrel => Dirt:50
+[08:00:25.825] [1] [INFO] ggg===animal:Squirrel diet infos =>
+consumeTags:ForestTree,BasicFabricPlant,SpaceTree caloriesPerKg:250000 produceElement:Dirt producedConversionRate:50
+[08:00:25.825] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Staterpillar => Hydrogen:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Cuprite caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Cobaltite caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:AluminumOre caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:GoldAmalgam caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:NickelOre caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:IronOre caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Cinnabar caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Nickel caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Copper caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Tungsten caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Lead caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:SolidMercury caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Gold caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Iridium caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Cobalt caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:DepletedUranium caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Iron caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===animal:Staterpillar diet infos =>
+consumeTags:Aluminum caloriesPerKg:33333.33 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.825] [1] [INFO] ggg===calories delta: -3333.333 max: 1E+07
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops WoodDeer => Dirt:8.333334
+[08:00:25.825] [1] [INFO] ggg===animal:WoodDeer diet infos =>
+consumeTags:HardSkinBerryPlant caloriesPerKg:166666.7 produceElement:Dirt producedConversionRate:8.333334
+[08:00:25.825] [1] [INFO] ggg===animal:WoodDeer diet infos =>
+consumeTags:HardSkinBerry caloriesPerKg:500000 produceElement:Dirt producedConversionRate:25
+[08:00:25.825] [1] [INFO] ggg===animal:WoodDeer diet infos =>
+consumeTags:PrickleFlower caloriesPerKg:166666.7 produceElement:Dirt producedConversionRate:8.333334
+[08:00:25.825] [1] [INFO] ggg===animal:WoodDeer diet infos =>
+consumeTags:PrickleFruit caloriesPerKg:999999.9 produceElement:Dirt producedConversionRate:50
+[08:00:25.825] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops IceBelly => IceBellyPoop:7.497111
+[08:00:25.825] [1] [INFO] ggg===animal:IceBelly diet infos =>
+consumeTags:CarrotPlant caloriesPerKg:444444.4 produceElement:IceBellyPoop producedConversionRate:7.497111
+[08:00:25.825] [1] [INFO] ggg===animal:IceBelly diet infos =>
+consumeTags:Carrot caloriesPerKg:4000000 produceElement:IceBellyPoop producedConversionRate:67.474
+[08:00:25.825] [1] [INFO] ggg===animal:IceBelly diet infos =>
+consumeTags:FriesCarrot caloriesPerKg:7112001 produceElement:IceBellyPoop producedConversionRate:120.01
+[08:00:25.825] [1] [INFO] ggg===animal:IceBelly diet infos =>
+consumeTags:BeanPlant caloriesPerKg:597371.6 produceElement:IceBellyPoop producedConversionRate:10.07676
+[08:00:25.825] [1] [INFO] ggg===animal:IceBelly diet infos =>
+consumeTags:BeanPlantSeed caloriesPerKg:1100000 produceElement:IceBellyPoop producedConversionRate:18.571
+[08:00:25.825] [1] [INFO] ggg===calories delta: -2962.963 max: 1.777778E+07
+[08:00:25.825] [1] [INFO] ggg===calories delta: 0 max: 0
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Pacu => ToxicSand:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:Algae caloriesPerKg:13333.33 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:Kelp caloriesPerKg:5000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:KelpPlant caloriesPerKg:50000 produceElement:ToxicSand producedConversionRate:5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:ColdWheatSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:DewDripperPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:FlyTrapPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:GardenFoodPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:GasGrassSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:HardSkinBerryPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:CarrotPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:ButterflyPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:BasicFabricMaterialPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:BasicSingleHarvestPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:BeanPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:BlueGrassSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:MushroomSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:SwampLilySeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:SaltPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:SwampHarvestPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:SeaLettuceSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:SpiceVineSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:WormPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:SpaceTreeSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Pacu diet infos =>
+consumeTags:PrickleFlowerSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===calories delta: -166.6667 max: 500000
+[08:00:25.825] [1] [INFO] [AnimalFarm]===Poops Hatch => Carbon:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Sand,SandStone,Clay,CrushedRock,Dirt,SedimentaryRock,Shale caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.5
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:FieldRation caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:MushBar caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:BasicPlantFood caloriesPerKg:600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:VineFruit caloriesPerKg:325000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:BasicForagePlant caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:ForestForagePlant caloriesPerKg:6400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SwampForagePlant caloriesPerKg:2400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:IceCavesForagePlant caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Mushroom caloriesPerKg:2400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Lettuce caloriesPerKg:400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:RawEgg caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Meat caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:PlantMeat caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:PrickleFruit caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SwampFruit caloriesPerKg:1840000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:FishMeat caloriesPerKg:1000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:ShellfishMeat caloriesPerKg:1000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:PrehistoricPacuFillet caloriesPerKg:1000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:WormBasicFruit caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:WormSuperFruit caloriesPerKg:250000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:HardSkinBerry caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Carrot caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Pemmican caloriesPerKg:2600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:FriesCarrot caloriesPerKg:5400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:ButterflyFood caloriesPerKg:1500000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:DeepFriedMeat caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:DeepFriedNosh caloriesPerKg:5000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:DeepFriedFish caloriesPerKg:4200000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:DeepFriedShellfish caloriesPerKg:4200000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:GardenFoodPlantFood caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:GardenForagePlant caloriesPerKg:800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:PickledMeal caloriesPerKg:1800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:BasicPlantBar caloriesPerKg:1700000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:FriedMushBar caloriesPerKg:1050000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:GammaMush caloriesPerKg:1050000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:GrilledPrickleFruit caloriesPerKg:2000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SwampDelights caloriesPerKg:2240000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:FriedMushroom caloriesPerKg:2800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:CookedPikeapple caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:ColdWheatBread caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:CookedEgg caloriesPerKg:2800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:CookedFish caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SmokedVegetables caloriesPerKg:2862500 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Pancakes caloriesPerKg:3600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SmokedFish caloriesPerKg:2800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:CookedMeat caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SmokedDinosaurMeat caloriesPerKg:5000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:WormBasicFood caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:WormSuperFood caloriesPerKg:2400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:FruitCake caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Salsa caloriesPerKg:4400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SurfAndTurf caloriesPerKg:6000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:MushroomWrap caloriesPerKg:4800000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Tofu caloriesPerKg:3600000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Curry caloriesPerKg:5000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SpiceBread caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.825] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:SpicyTofu caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.826] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Quiche caloriesPerKg:6400000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.826] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:BerryPie caloriesPerKg:4200000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.826] [1] [INFO] ggg===animal:Hatch diet infos =>
+consumeTags:Burger caloriesPerKg:6000000 produceElement:Carbon producedConversionRate:0.75
+[08:00:25.826] [1] [INFO] ggg===calories delta: -1166.667 max: 7000000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops PrehistoricPacu => Rust:0.3
+[08:00:25.826] [1] [INFO] ggg===animal:PrehistoricPacu diet infos =>
+consumeTags:Pacu,PacuCleaner,PacuTropical caloriesPerKg:500 produceElement:Rust producedConversionRate:0.3
+[08:00:25.826] [1] [INFO] ggg===animal:PrehistoricPacu diet infos =>
+consumeTags:FishMeat caloriesPerKg:100000 produceElement:Rust producedConversionRate:60
+[08:00:25.826] [1] [INFO] ggg===calories delta: -166.6667 max: 500000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops Raptor => BrineIce:128
+[08:00:25.826] [1] [INFO] ggg===animal:Raptor diet infos =>
+consumeTags:DinosaurMeat,Meat caloriesPerKg:1600000 produceElement:BrineIce producedConversionRate:128
+[08:00:25.826] [1] [INFO] ggg===animal:Raptor diet infos =>
+consumeTags:Hatch,HatchBaby,HatchVeggie,HatchVeggieBaby,HatchMetal,HatchMetalBaby,HatchHard,HatchHardBaby,Squirrel,SquirrelBaby,SquirrelHug,SquirrelHugBaby,Mole,MoleBaby,MoleDelicacy,MoleDelicacyBaby,Oilfloater,OilfloaterBaby,OilfloaterDecor,OilfloaterDecorBaby,OilfloaterHighTemp,OilfloaterHighTempBaby,Drecko,DreckoBaby,DreckoPlastic,DreckoPlasticBaby,StegoBaby,AlgaeStegoBaby,Chameleon,ChameleonBaby,DivergentWorm,DivergentWormBaby,DivergentBeetle,DivergentBeetleBaby,Staterpillar,StaterpillarBaby,StaterpillarGas,StaterpillarGasBaby,StaterpillarLiquid,StaterpillarLiquidBaby,IceBellyBaby,GoldBellyBaby,WoodDeer,WoodDeerBaby,GlassDeer,GlassDeerBaby caloriesPerKg:1600000 produceElement:BrineIce producedConversionRate:256
+[08:00:25.826] [1] [INFO] ggg===calories delta: -1333.333 max: 8000000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops DivergentWorm => Mud:0.1
+[08:00:25.826] [1] [INFO] ggg===animal:DivergentWorm diet infos =>
+consumeTags:Sulfur caloriesPerKg:14000 produceElement:Mud producedConversionRate:0.1
+[08:00:25.826] [1] [INFO] ggg===animal:DivergentWorm diet infos =>
+consumeTags:Sucrose caloriesPerKg:23333.33 produceElement:Mud producedConversionRate:1
+[08:00:25.826] [1] [INFO] ggg===calories delta: -1166.667 max: 7000000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops DivergentBeetle => Sucrose:0.5
+[08:00:25.826] [1] [INFO] ggg===animal:DivergentBeetle diet infos =>
+consumeTags:Sulfur caloriesPerKg:35000 produceElement:Sucrose producedConversionRate:0.5
+[08:00:25.826] [1] [INFO] ggg===calories delta: -1166.667 max: 7000000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops Crab => Sand:0.5
+[08:00:25.826] [1] [INFO] ggg===animal:Crab diet infos =>
+consumeTags:ToxicSand,RotPile caloriesPerKg:1428.571 produceElement:Sand producedConversionRate:0.5
+[08:00:25.826] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops Stego => Peat:50
+[08:00:25.826] [1] [INFO] ggg===animal:Stego diet infos =>
+consumeTags:VineFruit caloriesPerKg:325000 produceElement:Peat producedConversionRate:50
+[08:00:25.826] [1] [INFO] ggg===animal:Stego diet infos =>
+consumeTags:PrickleFruit caloriesPerKg:1600000 produceElement:Peat producedConversionRate:246.1539
+[08:00:25.826] [1] [INFO] ggg===animal:Stego diet infos =>
+consumeTags:SwampFruit caloriesPerKg:1840000 produceElement:Peat producedConversionRate:424.6154
+[08:00:25.826] [1] [INFO] ggg===calories delta: -2166.667 max: 1.3E+07
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops DreckoPlastic => Phosphorite:9
+[08:00:25.826] [1] [INFO] ggg===animal:DreckoPlastic diet infos =>
+consumeTags:BasicSingleHarvestPlant,PrickleFlower caloriesPerKg:2000000 produceElement:Phosphorite producedConversionRate:9
+[08:00:25.826] [1] [INFO] ggg===calories delta: -3333.333 max: 1E+07
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops LightBugPurple => 
+[08:00:25.826] [1] [INFO] ggg===animal:LightBugPurple diet infos =>
+consumeTags:FriedMushroom,GrilledPrickleFruit,CookedPikeapple,SpiceNut,SpiceBread,Phosphorite caloriesPerKg:40000 produceElement: producedConversionRate:1
+[08:00:25.826] [1] [INFO] ggg===calories delta: -66.66666 max: 320000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops LightBugPink => 
+[08:00:25.826] [1] [INFO] ggg===animal:LightBugPink diet infos =>
+consumeTags:FriedMushroom,SpiceBread,PrickleFruit,GrilledPrickleFruit,CookedPikeapple,Salsa,Phosphorite caloriesPerKg:40000 produceElement: producedConversionRate:1
+[08:00:25.826] [1] [INFO] ggg===calories delta: -66.66666 max: 320000
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops AlgaeStego => Algae:33
+[08:00:25.826] [1] [INFO] ggg===animal:AlgaeStego diet infos =>
+consumeTags:VineFruit caloriesPerKg:325000 produceElement:Algae producedConversionRate:33
+[08:00:25.826] [1] [INFO] ggg===animal:AlgaeStego diet infos =>
+consumeTags:PrickleFruit caloriesPerKg:1600000 produceElement:Algae producedConversionRate:162.4615
+[08:00:25.826] [1] [INFO] ggg===animal:AlgaeStego diet infos =>
+consumeTags:SwampFruit caloriesPerKg:1840000 produceElement:Algae producedConversionRate:280.2462
+[08:00:25.826] [1] [INFO] ggg===calories delta: -2166.667 max: 1.3E+07
+[08:00:25.826] [1] [INFO] [AnimalFarm]===Poops CrabFreshWater => Sand:0.5
+[08:00:25.827] [1] [INFO] ggg===animal:CrabFreshWater diet infos =>
+consumeTags:ToxicSand,RotPile,SlimeMold caloriesPerKg:1428.571 produceElement:Sand producedConversionRate:0.5
+[08:00:25.827] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops LightBugOrange => 
+[08:00:25.827] [1] [INFO] ggg===animal:LightBugOrange diet infos =>
+consumeTags:Mushroom,FriedMushroom,GrilledPrickleFruit,CookedPikeapple,Phosphorite caloriesPerKg:160000 produceElement: producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===calories delta: -66.66666 max: 320000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops LightBugCrystal => 
+[08:00:25.827] [1] [INFO] ggg===animal:LightBugCrystal diet infos =>
+consumeTags:CookedMeat,Diamond caloriesPerKg:40000 produceElement: producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===calories delta: -66.66666 max: 320000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops CrabWood => Sand:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:CrabWood diet infos =>
+consumeTags:ToxicSand,RotPile,SlimeMold caloriesPerKg:1428.571 produceElement:Sand producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops LightBugBlue => 
+[08:00:25.827] [1] [INFO] ggg===animal:LightBugBlue diet infos =>
+consumeTags:SpiceBread,Salsa,Phosphorite,Phosphorus caloriesPerKg:40000 produceElement: producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===calories delta: -66.66666 max: 320000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops LightBugBlack => 
+[08:00:25.827] [1] [INFO] ggg===animal:LightBugBlack diet infos =>
+consumeTags:Salsa,Meat,CookedMeat,Katairite,Phosphorus caloriesPerKg:40000 produceElement: producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===calories delta: -66.66666 max: 320000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops HatchVeggie => Carbon:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Dirt,SlimeMold,Algae,Fertilizer,ToxicSand caloriesPerKg:5000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:FieldRation caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:MushBar caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:BasicPlantFood caloriesPerKg:600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:VineFruit caloriesPerKg:325000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:BasicForagePlant caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:ForestForagePlant caloriesPerKg:6400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SwampForagePlant caloriesPerKg:2400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:IceCavesForagePlant caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Mushroom caloriesPerKg:2400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Lettuce caloriesPerKg:400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:RawEgg caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Meat caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:PlantMeat caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:PrickleFruit caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SwampFruit caloriesPerKg:1840000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:FishMeat caloriesPerKg:1000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:ShellfishMeat caloriesPerKg:1000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:PrehistoricPacuFillet caloriesPerKg:1000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:WormBasicFruit caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:WormSuperFruit caloriesPerKg:250000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:HardSkinBerry caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Carrot caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Pemmican caloriesPerKg:2600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:FriesCarrot caloriesPerKg:5400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:ButterflyFood caloriesPerKg:1500000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:DeepFriedMeat caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:DeepFriedNosh caloriesPerKg:5000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:DeepFriedFish caloriesPerKg:4200000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:DeepFriedShellfish caloriesPerKg:4200000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:GardenFoodPlantFood caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:GardenForagePlant caloriesPerKg:800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:PickledMeal caloriesPerKg:1800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:BasicPlantBar caloriesPerKg:1700000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:FriedMushBar caloriesPerKg:1050000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:GammaMush caloriesPerKg:1050000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:GrilledPrickleFruit caloriesPerKg:2000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SwampDelights caloriesPerKg:2240000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:FriedMushroom caloriesPerKg:2800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:CookedPikeapple caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:ColdWheatBread caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:CookedEgg caloriesPerKg:2800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:CookedFish caloriesPerKg:1600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SmokedVegetables caloriesPerKg:2862500 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Pancakes caloriesPerKg:3600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SmokedFish caloriesPerKg:2800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:CookedMeat caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SmokedDinosaurMeat caloriesPerKg:5000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:WormBasicFood caloriesPerKg:1200000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:WormSuperFood caloriesPerKg:2400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:FruitCake caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Salsa caloriesPerKg:4400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SurfAndTurf caloriesPerKg:6000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:MushroomWrap caloriesPerKg:4800000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Tofu caloriesPerKg:3600000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Curry caloriesPerKg:5000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SpiceBread caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:SpicyTofu caloriesPerKg:4000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Quiche caloriesPerKg:6400000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:BerryPie caloriesPerKg:4200000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===animal:HatchVeggie diet infos =>
+consumeTags:Burger caloriesPerKg:6000000 produceElement:Carbon producedConversionRate:1
+[08:00:25.827] [1] [INFO] ggg===calories delta: -1166.667 max: 7000000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops HatchMetal => Copper:0.75,Cobalt:0.75,Aluminum:0.75,Nickel:0.75,SolidMercury:0.75,Iron:0.75,Gold:0.75,Tungsten:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:Cuprite caloriesPerKg:7000 produceElement:Copper producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:Cobaltite caloriesPerKg:7000 produceElement:Cobalt producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:AluminumOre caloriesPerKg:7000 produceElement:Aluminum producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:NickelOre caloriesPerKg:7000 produceElement:Nickel producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:Cinnabar caloriesPerKg:7000 produceElement:SolidMercury producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:IronOre caloriesPerKg:7000 produceElement:Iron producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:GoldAmalgam caloriesPerKg:7000 produceElement:Gold producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===animal:HatchMetal diet infos =>
+consumeTags:Wolframite caloriesPerKg:7000 produceElement:Tungsten producedConversionRate:0.75
+[08:00:25.827] [1] [INFO] ggg===calories delta: -1166.667 max: 7000000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops HatchHard => Carbon:0.5
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:SedimentaryRock,IgneousRock,Obsidian,Granite caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.5
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:Cuprite caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:Cobaltite caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:AluminumOre caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:NickelOre caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:Cinnabar caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:IronOre caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:GoldAmalgam caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===animal:HatchHard diet infos =>
+consumeTags:Wolframite caloriesPerKg:5000 produceElement:Carbon producedConversionRate:0.25
+[08:00:25.827] [1] [INFO] ggg===calories delta: -1166.667 max: 7000000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops GlassDeer => Dirt:8.333334
+[08:00:25.827] [1] [INFO] ggg===animal:GlassDeer diet infos =>
+consumeTags:HardSkinBerryPlant caloriesPerKg:166666.7 produceElement:Dirt producedConversionRate:8.333334
+[08:00:25.827] [1] [INFO] ggg===animal:GlassDeer diet infos =>
+consumeTags:HardSkinBerry caloriesPerKg:500000 produceElement:Dirt producedConversionRate:25
+[08:00:25.827] [1] [INFO] ggg===animal:GlassDeer diet infos =>
+consumeTags:PrickleFlower caloriesPerKg:166666.7 produceElement:Dirt producedConversionRate:8.333334
+[08:00:25.827] [1] [INFO] ggg===animal:GlassDeer diet infos =>
+consumeTags:PrickleFruit caloriesPerKg:999999.9 produceElement:Dirt producedConversionRate:50
+[08:00:25.827] [1] [INFO] ggg===animal:GlassDeer diet infos =>
+consumeTags:Katairite caloriesPerKg:5000 produceElement:Dirt producedConversionRate:0.5
+[08:00:25.827] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops GoldBelly => IceBellyPoop:7.497111
+[08:00:25.827] [1] [INFO] ggg===animal:GoldBelly diet infos =>
+consumeTags:CarrotPlant caloriesPerKg:444444.4 produceElement:IceBellyPoop producedConversionRate:7.497111
+[08:00:25.827] [1] [INFO] ggg===animal:GoldBelly diet infos =>
+consumeTags:Carrot caloriesPerKg:4000000 produceElement:IceBellyPoop producedConversionRate:67.474
+[08:00:25.827] [1] [INFO] ggg===animal:GoldBelly diet infos =>
+consumeTags:FriesCarrot caloriesPerKg:7112001 produceElement:IceBellyPoop producedConversionRate:120.01
+[08:00:25.827] [1] [INFO] ggg===animal:GoldBelly diet infos =>
+consumeTags:BeanPlant caloriesPerKg:597371.6 produceElement:IceBellyPoop producedConversionRate:10.07676
+[08:00:25.827] [1] [INFO] ggg===animal:GoldBelly diet infos =>
+consumeTags:BeanPlantSeed caloriesPerKg:1100000 produceElement:IceBellyPoop producedConversionRate:18.571
+[08:00:25.827] [1] [INFO] ggg===calories delta: -2962.963 max: 1.777778E+07
+[08:00:25.827] [1] [INFO] [AnimalFarm]===Poops PacuTropical => ToxicSand:0.5
+[08:00:25.827] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:Algae caloriesPerKg:13333.33 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.827] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:Kelp caloriesPerKg:5000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.827] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:KelpPlant caloriesPerKg:50000 produceElement:ToxicSand producedConversionRate:5
+[08:00:25.827] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:ColdWheatSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:DewDripperPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:FlyTrapPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:GardenFoodPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:GasGrassSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:HardSkinBerryPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:CarrotPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:ButterflyPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:BasicFabricMaterialPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:BasicSingleHarvestPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:BeanPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:BlueGrassSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:MushroomSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:SwampLilySeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:SaltPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:SwampHarvestPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:SeaLettuceSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:SpiceVineSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:WormPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:SpaceTreeSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuTropical diet infos =>
+consumeTags:PrickleFlowerSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===calories delta: -166.6667 max: 500000
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops MoleDelicacy => Regolith:0.5,Dirt:0.5,IronOre:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:MoleDelicacy diet infos =>
+consumeTags:Regolith caloriesPerKg:1000 produceElement:Regolith producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:MoleDelicacy diet infos =>
+consumeTags:Dirt caloriesPerKg:1000 produceElement:Dirt producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:MoleDelicacy diet infos =>
+consumeTags:IronOre caloriesPerKg:1000 produceElement:IronOre producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===calories delta: -8000 max: 2.4E+07
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops PuftBleachstone => BleachStone:0.95
+[08:00:25.828] [1] [INFO] ggg===animal:PuftBleachstone diet infos =>
+consumeTags:ChlorineGas caloriesPerKg:6666.667 produceElement:BleachStone producedConversionRate:0.95
+[08:00:25.828] [1] [INFO] ggg===calories delta: -333.3333 max: 1200000
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops StaterpillarLiquid => Hydrogen:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Cuprite caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Cobaltite caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:AluminumOre caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:GoldAmalgam caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:NickelOre caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:IronOre caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Cinnabar caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Nickel caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Copper caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Tungsten caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Lead caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:SolidMercury caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Gold caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Iridium caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Cobalt caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:DepletedUranium caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Iron caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarLiquid diet infos =>
+consumeTags:Aluminum caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===calories delta: -3333.333 max: 1E+07
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops StaterpillarGas => Hydrogen:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Cuprite caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Cobaltite caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:AluminumOre caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:GoldAmalgam caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:NickelOre caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:IronOre caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Cinnabar caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Nickel caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Copper caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Tungsten caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Lead caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:SolidMercury caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Gold caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Iridium caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Cobalt caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:DepletedUranium caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Iron caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===animal:StaterpillarGas diet infos =>
+consumeTags:Aluminum caloriesPerKg:66666.66 produceElement:Hydrogen producedConversionRate:0.05
+[08:00:25.828] [1] [INFO] ggg===calories delta: -3333.333 max: 1E+07
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops PacuCleaner => ToxicSand:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:Algae caloriesPerKg:13333.33 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:Kelp caloriesPerKg:5000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:KelpPlant caloriesPerKg:50000 produceElement:ToxicSand producedConversionRate:5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:ColdWheatSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:DewDripperPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:FlyTrapPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:GardenFoodPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:GasGrassSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:HardSkinBerryPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:CarrotPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:ButterflyPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:BasicFabricMaterialPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:BasicSingleHarvestPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:BeanPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:BlueGrassSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:MushroomSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:SwampLilySeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:SaltPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:SwampHarvestPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:SeaLettuceSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:SpiceVineSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:WormPlantSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:SpaceTreeSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:PacuCleaner diet infos =>
+consumeTags:PrickleFlowerSeed caloriesPerKg:100000 produceElement:ToxicSand producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===calories delta: -166.6667 max: 500000
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops OilfloaterDecor => 
+[08:00:25.828] [1] [INFO] ggg===animal:OilfloaterDecor diet infos =>
+consumeTags:Oxygen caloriesPerKg:4000 produceElement: producedConversionRate:0
+[08:00:25.828] [1] [INFO] ggg===calories delta: -200 max: 600000
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops SquirrelHug => Dirt:25
+[08:00:25.828] [1] [INFO] ggg===animal:SquirrelHug diet infos =>
+consumeTags:ForestTree,BasicFabricPlant,SpaceTree caloriesPerKg:200000 produceElement:Dirt producedConversionRate:25
+[08:00:25.828] [1] [INFO] ggg===calories delta: -166.6667 max: 1000000
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops PuftOxylite => OxyRock:0.95
+[08:00:25.828] [1] [INFO] ggg===animal:PuftOxylite diet infos =>
+consumeTags:Oxygen caloriesPerKg:4000 produceElement:OxyRock producedConversionRate:0.95
+[08:00:25.828] [1] [INFO] ggg===calories delta: -333.3333 max: 1200000
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops PuftAlpha => SlimeMold:0.1,BleachStone:0.1,OxyRock:0.1
+[08:00:25.828] [1] [INFO] ggg===animal:PuftAlpha diet infos =>
+consumeTags:ContaminatedOxygen caloriesPerKg:6666.667 produceElement:SlimeMold producedConversionRate:0.1
+[08:00:25.828] [1] [INFO] ggg===animal:PuftAlpha diet infos =>
+consumeTags:ChlorineGas caloriesPerKg:6666.667 produceElement:BleachStone producedConversionRate:0.1
+[08:00:25.828] [1] [INFO] ggg===animal:PuftAlpha diet infos =>
+consumeTags:Oxygen caloriesPerKg:6666.667 produceElement:OxyRock producedConversionRate:0.1
+[08:00:25.828] [1] [INFO] ggg===calories delta: -333.3333 max: 1200000
+[08:00:25.828] [1] [INFO] [AnimalFarm]===Poops OilfloaterHighTemp => Petroleum:0.5
+[08:00:25.828] [1] [INFO] ggg===animal:OilfloaterHighTemp diet infos =>
+consumeTags:CarbonDioxide caloriesPerKg:6000 produceElement:Petroleum producedConversionRate:0.5
+[08:00:25.828] [1] [INFO] ggg===calories delta: -200 max: 600000
+[08:00:25.829] [1] [INFO] [AnimalFarm]===InfoMap =>
+ChameleonEgg                   [ ChameleonEgg                   | ChameleonBaby                  | Chameleon                      | 5     | 50    | 0.01666667      | <link="CHAMELEON">逸蜥蛋</link>                                 ]
+ChameleonBaby                  [ ChameleonEgg                   | ChameleonBaby                  | Chameleon                      | 5     | 50    | 0.01666667      | <link="CHAMELEON">逸蜥幼崽</link>                                ]
+Chameleon                      [ ChameleonEgg                   | ChameleonBaby                  | Chameleon                      | 5     | 50    | 0.01666667      | <link="CHAMELEON">逸蜥</link>                                  ]
+DreckoEgg                      [ DreckoEgg                      | DreckoBaby                     | Drecko                         | 5     | 150   | 0.005555556     | <link="DRECKO">毛鳞壁虎蛋</link>                                  ]
+DreckoBaby                     [ DreckoEgg                      | DreckoBaby                     | Drecko                         | 5     | 150   | 0.005555556     | <link="DRECKO">毛鳞壁虎幼崽</link>                                 ]
+Drecko                         [ DreckoEgg                      | DreckoBaby                     | Drecko                         | 5     | 150   | 0.005555556     | <link="DRECKO">毛鳞壁虎</link>                                   ]
+LightBugEgg                    [ LightBugEgg                    | LightBugBaby                   | LightBug                       | 5     | 25    | 0.03333334      | <link="LIGHTBUG">发光虫卵</link>                                 ]
+LightBugBaby                   [ LightBugEgg                    | LightBugBaby                   | LightBug                       | 5     | 25    | 0.03333334      | <link="LIGHTBUG">发光虫幼虫</link>                                ]
+LightBug                       [ LightBugEgg                    | LightBugBaby                   | LightBug                       | 5     | 25    | 0.03333334      | <link="LIGHTBUG">发光虫</link>                                  ]
+MoleEgg                        [ MoleEgg                        | MoleBaby                       | Mole                           | 5     | 100   | 0.008333334     | <link="MOLE">锹环田鼠蛋</link>                                    ]
+MoleBaby                       [ MoleEgg                        | MoleBaby                       | Mole                           | 5     | 100   | 0.008333334     | <link="MOLE">锹环田鼠幼崽</link>                                   ]
+Mole                           [ MoleEgg                        | MoleBaby                       | Mole                           | 5     | 100   | 0.008333334     | <link="MOLE">锹环田鼠</link>                                     ]
+OilfloaterEgg                  [ OilfloaterEgg                  | OilfloaterBaby                 | Oilfloater                     | 5     | 100   | 0.008333334     | <link="OILFLOATER">浮油生物蛋</link>                              ]
+OilfloaterBaby                 [ OilfloaterEgg                  | OilfloaterBaby                 | Oilfloater                     | 5     | 100   | 0.008333334     | <link="OILFLOATER">浮油生物幼体</link>                             ]
+Oilfloater                     [ OilfloaterEgg                  | OilfloaterBaby                 | Oilfloater                     | 5     | 100   | 0.008333334     | <link="OILFLOATER">浮油生物</link>                               ]
+PuftEgg                        [ PuftEgg                        | PuftBaby                       | Puft                           | 5     | 75    | 0.01111111      | <link="PUFT">喷浮飞鱼蛋</link>                                    ]
+PuftBaby                       [ PuftEgg                        | PuftBaby                       | Puft                           | 5     | 75    | 0.01111111      | <link="PUFT">喷浮飞鱼幼体</link>                                   ]
+Puft                           [ PuftEgg                        | PuftBaby                       | Puft                           | 5     | 75    | 0.01111111      | <link="PUFT">喷浮飞鱼</link>                                     ]
+SealEgg                        [ SealEgg                        | SealBaby                       | Seal                           | 5     | 100   | 0.008333334     | <link="SEAL">栓角海豹蛋</link>                                    ]
+SealBaby                       [ SealEgg                        | SealBaby                       | Seal                           | 5     | 100   | 0.008333334     | <link="SEAL">栓角海豹幼崽</link>                                   ]
+Seal                           [ SealEgg                        | SealBaby                       | Seal                           | 5     | 100   | 0.008333334     | <link="SEAL">栓角海豹</link>                                     ]
+SquirrelEgg                    [ SquirrelEgg                    | SquirrelBaby                   | Squirrel                       | 5     | 100   | 0.008333334     | <link="SQUIRREL">树鼠蛋</link>                                  ]
+SquirrelBaby                   [ SquirrelEgg                    | SquirrelBaby                   | Squirrel                       | 5     | 100   | 0.008333334     | <link="SQUIRREL">树鼠幼崽</link>                                 ]
+Squirrel                       [ SquirrelEgg                    | SquirrelBaby                   | Squirrel                       | 5     | 100   | 0.008333334     | <link="SQUIRREL">树鼠</link>                                   ]
+StaterpillarEgg                [ StaterpillarEgg                | StaterpillarBaby               | Staterpillar                   | 5     | 100   | 0.008333334     | <link="STATERPILLAR">电弧蛞蝓蛋</link>                            ]
+StaterpillarBaby               [ StaterpillarEgg                | StaterpillarBaby               | Staterpillar                   | 5     | 100   | 0.008333334     | <link="STATERPILLAR">电弧蛞蝓幼体</link>                           ]
+Staterpillar                   [ StaterpillarEgg                | StaterpillarBaby               | Staterpillar                   | 5     | 100   | 0.008333334     | <link="STATERPILLAR">电弧蛞蝓</link>                             ]
+WoodDeerEgg                    [ WoodDeerEgg                    | WoodDeerBaby                   | WoodDeer                       | 5     | 100   | 0.008333334     | <link="WOODDEER">狐鹿蛋</link>                                  ]
+WoodDeerBaby                   [ WoodDeerEgg                    | WoodDeerBaby                   | WoodDeer                       | 5     | 100   | 0.008333334     | <link="WOODDEER">狐鹿幼崽</link>                                 ]
+WoodDeer                       [ WoodDeerEgg                    | WoodDeerBaby                   | WoodDeer                       | 5     | 100   | 0.008333334     | <link="WOODDEER">狐鹿</link>                                   ]
+IceBellyEgg                    [ IceBellyEgg                    | IceBellyBaby                   | IceBelly                       | 5     | 200   | 0.004166667     | <link="ICEBELLY">绒犸兔蛋</link>                                 ]
+IceBellyBaby                   [ IceBellyEgg                    | IceBellyBaby                   | IceBelly                       | 5     | 200   | 0.004166667     | <link="ICEBELLY">绒犸兔幼崽</link>                                ]
+IceBelly                       [ IceBellyEgg                    | IceBellyBaby                   | IceBelly                       | 5     | 200   | 0.004166667     | <link="ICEBELLY">绒犸兔</link>                                  ]
+MosquitoEgg                    [ MosquitoEgg                    | MosquitoBaby                   | Mosquito                       | 5     | 10    | 0.08333334      | <link="MOSQUITO">蚋虱卵</link>                                  ]
+MosquitoBaby                   [ MosquitoEgg                    | MosquitoBaby                   | Mosquito                       | 5     | 10    | 0.08333334      | <link="MOSQUITO">蚋虱幼虫</link>                                 ]
+Mosquito                       [ MosquitoEgg                    | MosquitoBaby                   | Mosquito                       | 5     | 10    | 0.08333334      | <link="MOSQUITO">蚋虱</link>                                   ]
+PacuEgg                        [ PacuEgg                        | PacuBaby                       | Pacu                           | 5     | 25    | 0.03333334      | <link="PACU">帕库鱼卵</link>                                     ]
+PacuBaby                       [ PacuEgg                        | PacuBaby                       | Pacu                           | 5     | 25    | 0.03333334      | <link="PACU">帕库鱼苗</link>                                     ]
+Pacu                           [ PacuEgg                        | PacuBaby                       | Pacu                           | 5     | 25    | 0.03333334      | <link="PACU">帕库鱼</link>                                      ]
+HatchEgg                       [ HatchEgg                       | HatchBaby                      | Hatch                          | 5     | 100   | 0.008333334     | <link="HATCH">好吃哈奇蛋</link>                                   ]
+HatchBaby                      [ HatchEgg                       | HatchBaby                      | Hatch                          | 5     | 100   | 0.008333334     | <link="HATCH">好吃哈奇幼崽</link>                                  ]
+Hatch                          [ HatchEgg                       | HatchBaby                      | Hatch                          | 5     | 100   | 0.008333334     | <link="HATCH">好吃哈奇</link>                                    ]
+PrehistoricPacuEgg             [ PrehistoricPacuEgg             | PrehistoricPacuBaby            | PrehistoricPacu                | 5     | 100   | 0.008333334     | <link="PREHISTORICPACU">颚鱼卵</link>                           ]
+PrehistoricPacuBaby            [ PrehistoricPacuEgg             | PrehistoricPacuBaby            | PrehistoricPacu                | 5     | 100   | 0.008333334     | <link="PREHISTORICPACU">颚鱼苗</link>                           ]
+PrehistoricPacu                [ PrehistoricPacuEgg             | PrehistoricPacuBaby            | PrehistoricPacu                | 5     | 100   | 0.008333334     | <link="PREHISTORICPACU">颚鱼</link>                            ]
+RaptorEgg                      [ RaptorEgg                      | RaptorBaby                     | Raptor                         | 5     | 200   | 0.004166667     | <link="RAPTOR">霸王鹦蛋</link>                                   ]
+RaptorBaby                     [ RaptorEgg                      | RaptorBaby                     | Raptor                         | 5     | 200   | 0.004166667     | <link="RAPTOR">霸王鹦幼鸟</link>                                  ]
+Raptor                         [ RaptorEgg                      | RaptorBaby                     | Raptor                         | 5     | 200   | 0.004166667     | <link="RAPTOR">霸王鹦</link>                                    ]
+DivergentWormEgg               [ DivergentWormEgg               | DivergentWormBaby              | DivergentWorm                  | 5     | 150   | 0.005555556     | <link="DIVERGENTWORM">虫果果虫卵</link>                           ]
+DivergentWormBaby              [ DivergentWormEgg               | DivergentWormBaby              | DivergentWorm                  | 5     | 150   | 0.005555556     | <link="DIVERGENTWORM">虫果果虫幼虫</link>                          ]
+DivergentWorm                  [ DivergentWormEgg               | DivergentWormBaby              | DivergentWorm                  | 5     | 150   | 0.005555556     | <link="DIVERGENTWORM">虫果果虫</link>                            ]
+DivergentBeetleEgg             [ DivergentBeetleEgg             | DivergentBeetleBaby            | DivergentBeetle                | 5     | 75    | 0.01111111      | <link="DIVERGENTBEETLE">甜素甲虫卵</link>                         ]
+DivergentBeetleBaby            [ DivergentBeetleEgg             | DivergentBeetleBaby            | DivergentBeetle                | 5     | 75    | 0.01111111      | <link="DIVERGENTBEETLE">甜素甲虫幼虫</link>                        ]
+DivergentBeetle                [ DivergentBeetleEgg             | DivergentBeetleBaby            | DivergentBeetle                | 5     | 75    | 0.01111111      | <link="DIVERGENTBEETLE">甜素甲虫</link>                          ]
+CrabEgg                        [ CrabEgg                        | CrabBaby                       | Crab                           | 5     | 100   | 0.008333334     | <link="CRAB">抛壳蟹卵</link>                                     ]
+CrabBaby                       [ CrabEgg                        | CrabBaby                       | Crab                           | 5     | 100   | 0.008333334     | <link="CRAB">抛壳蟹幼体</link>                                    ]
+Crab                           [ CrabEgg                        | CrabBaby                       | Crab                           | 5     | 100   | 0.008333334     | <link="CRAB">抛壳蟹</link>                                      ]
+StegoEgg                       [ StegoEgg                       | StegoBaby                      | Stego                          | 5     | 200   | 0.004166667     | <link="STEGO">尖块兽蛋</link>                                    ]
+StegoBaby                      [ StegoEgg                       | StegoBaby                      | Stego                          | 5     | 200   | 0.004166667     | <link="STEGO">尖块兽幼崽</link>                                   ]
+Stego                          [ StegoEgg                       | StegoBaby                      | Stego                          | 5     | 200   | 0.004166667     | <link="STEGO">尖块兽</link>                                     ]
+DreckoPlasticEgg               [ DreckoPlasticEgg               | DreckoPlasticBaby              | DreckoPlastic                  | 5     | 150   | 0.005555556     | <link="DRECKOPLASTIC">滑鳞壁虎蛋</link>                           ]
+DreckoPlasticBaby              [ DreckoPlasticEgg               | DreckoPlasticBaby              | DreckoPlastic                  | 5     | 150   | 0.005555556     | <link="DRECKOPLASTIC">滑鳞壁虎幼崽</link>                          ]
+DreckoPlastic                  [ DreckoPlasticEgg               | DreckoPlasticBaby              | DreckoPlastic                  | 5     | 150   | 0.005555556     | <link="DRECKOPLASTIC">滑鳞壁虎</link>                            ]
+LightBugPurpleEgg              [ LightBugPurpleEgg              | LightBugPurpleBaby             | LightBugPurple                 | 5     | 25    | 0.03333334      | <link="LIGHTBUGPURPLE">皇家虫卵</link>                           ]
+LightBugPurpleBaby             [ LightBugPurpleEgg              | LightBugPurpleBaby             | LightBugPurple                 | 5     | 25    | 0.03333334      | <link="LIGHTBUGPURPLE">皇家虫幼虫</link>                          ]
+LightBugPurple                 [ LightBugPurpleEgg              | LightBugPurpleBaby             | LightBugPurple                 | 5     | 25    | 0.03333334      | <link="LIGHTBUGPURPLE">皇家虫</link>                            ]
+LightBugPinkEgg                [ LightBugPinkEgg                | LightBugPinkBaby               | LightBugPink                   | 5     | 25    | 0.03333334      | <link="LIGHTBUGPINK">珊瑚虫卵</link>                             ]
+LightBugPinkBaby               [ LightBugPinkEgg                | LightBugPinkBaby               | LightBugPink                   | 5     | 25    | 0.03333334      | <link="LIGHTBUGPINK">珊瑚虫幼虫</link>                            ]
+LightBugPink                   [ LightBugPinkEgg                | LightBugPinkBaby               | LightBugPink                   | 5     | 25    | 0.03333334      | <link="LIGHTBUGPINK">珊瑚虫</link>                              ]
+AlgaeStegoEgg                  [ AlgaeStegoEgg                  | AlgaeStegoBaby                 | AlgaeStego                     | 5     | 200   | 0.004166667     | <link="ALGAESTEGO">叶块兽蛋</link>                               ]
+AlgaeStegoBaby                 [ AlgaeStegoEgg                  | AlgaeStegoBaby                 | AlgaeStego                     | 5     | 200   | 0.004166667     | <link="ALGAESTEGO">叶块兽幼崽</link>                              ]
+AlgaeStego                     [ AlgaeStegoEgg                  | AlgaeStegoBaby                 | AlgaeStego                     | 5     | 200   | 0.004166667     | <link="ALGAESTEGO">叶块兽</link>                                ]
+CrabFreshWaterEgg              [ CrabFreshWaterEgg              | CrabFreshWaterBaby             | CrabFreshWater                 | 5     | 100   | 0.008333334     | <link="CRABFRESHWATER">沙泥蟹卵</link>                           ]
+CrabFreshWaterBaby             [ CrabFreshWaterEgg              | CrabFreshWaterBaby             | CrabFreshWater                 | 5     | 100   | 0.008333334     | <link="CRABFRESHWATER">沙泥蟹幼体</link>                          ]
+CrabFreshWater                 [ CrabFreshWaterEgg              | CrabFreshWaterBaby             | CrabFreshWater                 | 5     | 100   | 0.008333334     | <link="CRABFRESHWATER">沙泥蟹</link>                            ]
+LightBugOrangeEgg              [ LightBugOrangeEgg              | LightBugOrangeBaby             | LightBugOrange                 | 5     | 25    | 0.03333334      | <link="LIGHTBUGORANGE">阳光虫卵</link>                           ]
+LightBugOrangeBaby             [ LightBugOrangeEgg              | LightBugOrangeBaby             | LightBugOrange                 | 5     | 25    | 0.03333334      | <link="LIGHTBUGORANGE">阳光虫幼虫</link>                          ]
+LightBugOrange                 [ LightBugOrangeEgg              | LightBugOrangeBaby             | LightBugOrange                 | 5     | 25    | 0.03333334      | <link="LIGHTBUGORANGE">阳光虫</link>                            ]
+LightBugCrystalEgg             [ LightBugCrystalEgg             | LightBugCrystalBaby            | LightBugCrystal                | 5     | 75    | 0.01111111      | <link="LIGHTBUGCRYSTAL">光耀虫卵</link>                          ]
+LightBugCrystalBaby            [ LightBugCrystalEgg             | LightBugCrystalBaby            | LightBugCrystal                | 5     | 75    | 0.01111111      | <link="LIGHTBUGCRYSTAL">光耀虫幼虫</link>                         ]
+LightBugCrystal                [ LightBugCrystalEgg             | LightBugCrystalBaby            | LightBugCrystal                | 5     | 75    | 0.01111111      | <link="LIGHTBUGCRYSTAL">光耀虫</link>                           ]
+CrabWoodEgg                    [ CrabWoodEgg                    | CrabWoodBaby                   | CrabWood                       | 5     | 100   | 0.008333334     | <link="CRABWOOD">木壳蟹卵</link>                                 ]
+CrabWoodBaby                   [ CrabWoodEgg                    | CrabWoodBaby                   | CrabWood                       | 5     | 100   | 0.008333334     | <link="CRABWOOD">木壳蟹幼体</link>                                ]
+CrabWood                       [ CrabWoodEgg                    | CrabWoodBaby                   | CrabWood                       | 5     | 100   | 0.008333334     | <link="CRABWOOD">木壳蟹</link>                                  ]
+LightBugBlueEgg                [ LightBugBlueEgg                | LightBugBlueBaby               | LightBugBlue                   | 5     | 25    | 0.03333334      | <link="LIGHTBUGBLUE">天蓝虫卵</link>                             ]
+LightBugBlueBaby               [ LightBugBlueEgg                | LightBugBlueBaby               | LightBugBlue                   | 5     | 25    | 0.03333334      | <link="LIGHTBUGBLUE">天蓝虫幼虫</link>                            ]
+LightBugBlue                   [ LightBugBlueEgg                | LightBugBlueBaby               | LightBugBlue                   | 5     | 25    | 0.03333334      | <link="LIGHTBUGBLUE">天蓝虫</link>                              ]
+LightBugBlackEgg               [ LightBugBlackEgg               | LightBugBlackBaby              | LightBugBlack                  | 5     | 75    | 0.01111111      | <link="LIGHTBUGBLACK">深渊虫卵</link>                            ]
+LightBugBlackBaby              [ LightBugBlackEgg               | LightBugBlackBaby              | LightBugBlack                  | 5     | 75    | 0.01111111      | <link="LIGHTBUGBLACK">深渊虫幼虫</link>                           ]
+LightBugBlack                  [ LightBugBlackEgg               | LightBugBlackBaby              | LightBugBlack                  | 5     | 75    | 0.01111111      | <link="LIGHTBUGBLACK">深渊虫</link>                             ]
+HatchVeggieEgg                 [ HatchVeggieEgg                 | HatchVeggieBaby                | HatchVeggie                    | 5     | 100   | 0.008333334     | <link="HATCHVEGGIE">草质哈奇蛋</link>                             ]
+HatchVeggieBaby                [ HatchVeggieEgg                 | HatchVeggieBaby                | HatchVeggie                    | 5     | 100   | 0.008333334     | <link="HATCHVEGGIE">草质哈奇幼崽</link>                            ]
+HatchVeggie                    [ HatchVeggieEgg                 | HatchVeggieBaby                | HatchVeggie                    | 5     | 100   | 0.008333334     | <link="HATCHVEGGIE">草质哈奇</link>                              ]
+HatchMetalEgg                  [ HatchMetalEgg                  | HatchMetalBaby                 | HatchMetal                     | 5     | 100   | 0.008333334     | <link="HATCHMETAL">光滑哈奇蛋</link>                              ]
+HatchMetalBaby                 [ HatchMetalEgg                  | HatchMetalBaby                 | HatchMetal                     | 5     | 100   | 0.008333334     | <link="HATCHMETAL">光滑哈奇幼崽</link>                             ]
+HatchMetal                     [ HatchMetalEgg                  | HatchMetalBaby                 | HatchMetal                     | 5     | 100   | 0.008333334     | <link="HATCHMETAL">光滑哈奇</link>                               ]
+HatchHardEgg                   [ HatchHardEgg                   | HatchHardBaby                  | HatchHard                      | 5     | 100   | 0.008333334     | <link="HATCHHARD">石壳哈奇蛋</link>                               ]
+HatchHardBaby                  [ HatchHardEgg                   | HatchHardBaby                  | HatchHard                      | 5     | 100   | 0.008333334     | <link="HATCHHARD">石壳哈奇幼崽</link>                              ]
+HatchHard                      [ HatchHardEgg                   | HatchHardBaby                  | HatchHard                      | 5     | 100   | 0.008333334     | <link="HATCHHARD">石壳哈奇</link>                                ]
+GlassDeerEgg                   [ GlassDeerEgg                   | GlassDeerBaby                  | GlassDeer                      | 5     | 100   | 0.008333334     | <link="GLASSDEER">碎晶狐鹿蛋</link>                               ]
+GlassDeerBaby                  [ GlassDeerEgg                   | GlassDeerBaby                  | GlassDeer                      | 5     | 100   | 0.008333334     | <link="GLASSDEER">碎晶狐鹿幼崽</link>                              ]
+GlassDeer                      [ GlassDeerEgg                   | GlassDeerBaby                  | GlassDeer                      | 5     | 100   | 0.008333334     | <link="GLASSDEER">碎晶狐鹿</link>                                ]
+GoldBellyEgg                   [ GoldBellyEgg                   | GoldBellyBaby                  | GoldBelly                      | 5     | 200   | 0.004166667     | <link="GOLDBELLY">皇犸兔蛋</link>                                ]
+GoldBellyBaby                  [ GoldBellyEgg                   | GoldBellyBaby                  | GoldBelly                      | 5     | 200   | 0.004166667     | <link="GOLDBELLY">皇犸兔幼崽</link>                               ]
+GoldBelly                      [ GoldBellyEgg                   | GoldBellyBaby                  | GoldBelly                      | 5     | 200   | 0.004166667     | <link="GOLDBELLY">皇犸兔</link>                                 ]
+PacuTropicalEgg                [ PacuTropicalEgg                | PacuTropicalBaby               | PacuTropical                   | 5     | 25    | 0.03333334      | <link="PACUTROPICAL">热带帕库鱼卵</link>                           ]
+PacuTropicalBaby               [ PacuTropicalEgg                | PacuTropicalBaby               | PacuTropical                   | 5     | 25    | 0.03333334      | <link="PACUTROPICAL">热带帕库鱼苗</link>                           ]
+PacuTropical                   [ PacuTropicalEgg                | PacuTropicalBaby               | PacuTropical                   | 5     | 25    | 0.03333334      | <link="PACUTROPICAL">热带帕库鱼</link>                            ]
+MoleDelicacyEgg                [ MoleDelicacyEgg                | MoleDelicacyBaby               | MoleDelicacy                   | 5     | 100   | 0.008333334     | <link="MOLEDELICACY">珍馐田鼠蛋</link>                            ]
+MoleDelicacyBaby               [ MoleDelicacyEgg                | MoleDelicacyBaby               | MoleDelicacy                   | 5     | 100   | 0.008333334     | <link="MOLEDELICACY">珍馐田鼠幼崽</link>                           ]
+MoleDelicacy                   [ MoleDelicacyEgg                | MoleDelicacyBaby               | MoleDelicacy                   | 5     | 100   | 0.008333334     | <link="MOLEDELICACY">珍馐田鼠</link>                             ]
+PuftBleachstoneEgg             [ PuftBleachstoneEgg             | PuftBleachstoneBaby            | PuftBleachstone                | 5     | 75    | 0.01111111      | <link="PUFTBLEACHSTONE">洁净飞鱼蛋</link>                         ]
+PuftBleachstoneBaby            [ PuftBleachstoneEgg             | PuftBleachstoneBaby            | PuftBleachstone                | 5     | 75    | 0.01111111      | <link="PUFTBLEACHSTONE">洁净飞鱼幼体</link>                        ]
+PuftBleachstone                [ PuftBleachstoneEgg             | PuftBleachstoneBaby            | PuftBleachstone                | 5     | 75    | 0.01111111      | <link="PUFTBLEACHSTONE">洁净飞鱼</link>                          ]
+StaterpillarLiquidEgg          [ StaterpillarLiquidEgg          | StaterpillarLiquidBaby         | StaterpillarLiquid             | 5     | 100   | 0.008333334     | <link="STATERPILLAR">海绵蛞蝓蛋</link>                            ]
+StaterpillarLiquidBaby         [ StaterpillarLiquidEgg          | StaterpillarLiquidBaby         | StaterpillarLiquid             | 5     | 100   | 0.008333334     | <link="STATERPILLAR">海绵蛞蝓幼体</link>                           ]
+StaterpillarLiquid             [ StaterpillarLiquidEgg          | StaterpillarLiquidBaby         | StaterpillarLiquid             | 5     | 100   | 0.008333334     | <link="STATERPILLAR">海绵蛞蝓</link>                             ]
+StaterpillarGasEgg             [ StaterpillarGasEgg             | StaterpillarGasBaby            | StaterpillarGas                | 5     | 100   | 0.008333334     | <link="STATERPILLAR">烟雾蛞蝓蛋</link>                            ]
+StaterpillarGasBaby            [ StaterpillarGasEgg             | StaterpillarGasBaby            | StaterpillarGas                | 5     | 100   | 0.008333334     | <link="STATERPILLAR">烟雾蛞蝓幼体</link>                           ]
+StaterpillarGas                [ StaterpillarGasEgg             | StaterpillarGasBaby            | StaterpillarGas                | 5     | 100   | 0.008333334     | <link="STATERPILLAR">烟雾蛞蝓</link>                             ]
+PacuCleanerEgg                 [ PacuCleanerEgg                 | PacuCleanerBaby                | PacuCleaner                    | 5     | 25    | 0.03333334      | <link="PACUCLEANER">大嘴鱼卵</link>                              ]
+PacuCleanerBaby                [ PacuCleanerEgg                 | PacuCleanerBaby                | PacuCleaner                    | 5     | 25    | 0.03333334      | <link="PACUCLEANER">大嘴鱼苗</link>                              ]
+PacuCleaner                    [ PacuCleanerEgg                 | PacuCleanerBaby                | PacuCleaner                    | 5     | 25    | 0.03333334      | <link="PACUCLEANER">大嘴鱼</link>                               ]
+OilfloaterDecorEgg             [ OilfloaterDecorEgg             | OilfloaterDecorBaby            | OilfloaterDecor                | 5     | 150   | 0.005555556     | <link="OILFLOATERDECOR">长毛浮油生物蛋</link>                       ]
+OilfloaterDecorBaby            [ OilfloaterDecorEgg             | OilfloaterDecorBaby            | OilfloaterDecor                | 5     | 150   | 0.005555556     | <link="OILFLOATERDECOR">长毛浮油生物幼体</link>                      ]
+OilfloaterDecor                [ OilfloaterDecorEgg             | OilfloaterDecorBaby            | OilfloaterDecor                | 5     | 150   | 0.005555556     | <link="OILFLOATERDECOR">长毛浮油生物</link>                        ]
+SquirrelHugEgg                 [ SquirrelHugEgg                 | SquirrelHugBaby                | SquirrelHug                    | 5     | 100   | 0.008333334     | <link="SQUIRREL">毛绒树鼠蛋</link>                                ]
+SquirrelHugBaby                [ SquirrelHugEgg                 | SquirrelHugBaby                | SquirrelHug                    | 5     | 100   | 0.008333334     | <link="SQUIRREL">毛绒树鼠幼崽</link>                               ]
+SquirrelHug                    [ SquirrelHugEgg                 | SquirrelHugBaby                | SquirrelHug                    | 5     | 100   | 0.008333334     | <link="SQUIRREL">毛绒树鼠</link>                                 ]
+PuftOxyliteEgg                 [ PuftOxyliteEgg                 | PuftOxyliteBaby                | PuftOxylite                    | 5     | 75    | 0.01111111      | <link="PUFTOXYLITE">厚壳飞鱼蛋</link>                             ]
+PuftOxyliteBaby                [ PuftOxyliteEgg                 | PuftOxyliteBaby                | PuftOxylite                    | 5     | 75    | 0.01111111      | <link="PUFTOXYLITE">厚壳飞鱼幼体</link>                            ]
+PuftOxylite                    [ PuftOxyliteEgg                 | PuftOxyliteBaby                | PuftOxylite                    | 5     | 75    | 0.01111111      | <link="PUFTOXYLITE">厚壳飞鱼</link>                              ]
+PuftAlphaEgg                   [ PuftAlphaEgg                   | PuftAlphaBaby                  | PuftAlpha                      | 5     | 75    | 0.01111111      | <link="PUFTALPHA">贵族飞鱼蛋</link>                               ]
+PuftAlphaBaby                  [ PuftAlphaEgg                   | PuftAlphaBaby                  | PuftAlpha                      | 5     | 75    | 0.01111111      | <link="PUFTALPHA">贵族飞鱼幼体</link>                              ]
+PuftAlpha                      [ PuftAlphaEgg                   | PuftAlphaBaby                  | PuftAlpha                      | 5     | 75    | 0.01111111      | <link="PUFTALPHA">贵族飞鱼</link>                                ]
+OilfloaterHighTempEgg          [ OilfloaterHighTempEgg          | OilfloaterHighTempBaby         | OilfloaterHighTemp             | 5     | 100   | 0.008333334     | <link="OILFLOATERHIGHTEMP">熔岩浮油生物蛋</link>                    ]
+OilfloaterHighTempBaby         [ OilfloaterHighTempEgg          | OilfloaterHighTempBaby         | OilfloaterHighTemp             | 5     | 100   | 0.008333334     | <link="OILFLOATERHIGHTEMP">熔岩浮油生物幼体</link>                   ]
+OilfloaterHighTemp             [ OilfloaterHighTempEgg          | OilfloaterHighTempBaby         | OilfloaterHighTemp             | 5     | 100   | 0.008333334     | <link="OILFLOATERHIGHTEMP">熔岩浮油生物</link>                     ]
