@@ -166,8 +166,10 @@ namespace GGGMod.AnimalFarm {
 
         // 每日产出
         private void BatchSpawnDailyPoops(int animalNum, List<Tuple<Tag, float>> producedList, float multiplier) {
+            float cnt = (float)producedList.Count;
+            // 注意除数为0, 这里因为是for循环所以不会有问题
             for (int i = 0; i < producedList.Count; i++) {
-                SpawnDailyPoop(animalNum, producedList[i], multiplier);
+                SpawnDailyPoop(animalNum, producedList[i], multiplier / cnt);
             }
         }
 
