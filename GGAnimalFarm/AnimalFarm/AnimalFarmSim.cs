@@ -102,7 +102,7 @@ namespace GGGMod.AnimalFarm {
                         for (int i = 0; i < ccmd.diet.infos.Length; i++) {
                             var dietInfo = ccmd.diet.infos[i];
                             if (dietInfo.producedElement != Tag.Invalid && -1 == produceList.FindIndex(t=> t.first == dietInfo.producedElement)) {
-                                float produceMassKg = Mathf.Round(Mathf.Abs(caloriesDelta) * 600f / dietInfo.caloriesPerKg * dietInfo.producedConversionRate * DAILY_POOP_MULTIPLIER_FIX);
+                                float produceMassKg = Mathf.Round(Mathf.Abs(caloriesDelta) * 600f / dietInfo.caloriesPerKg * dietInfo.producedConversionRate * DAILY_POOP_MULTIPLIER_FIX * AnimalFarmSettings.dailyPoopMultiplier);
                                 produceList.Add(new Tuple<Tag, float>(dietInfo.producedElement, produceMassKg));
                             }
                         }
@@ -180,7 +180,7 @@ namespace GGGMod.AnimalFarm {
             gameObject.transform.SetPosition(Grid.CellToPosCCC(cell, Grid.SceneLayer.Ore));
             PrimaryElement component2 = gameObject.GetComponent<PrimaryElement>();
             component2.Temperature = master.Temperature;
-            component2.Mass = Mathf.Ceil(dropTuple.second * (float)animalNum * DAILY_PROBABLY_DROP_MULTIPLIER_FIX);
+            component2.Mass = Mathf.Ceil(dropTuple.second * (float)animalNum * DAILY_PROBABLY_DROP_MULTIPLIER_FIX * AnimalFarmSettings.dailyShearMultiplier);
             gameObject.SetActive(value: true);
             Vector2 initial_velocity = new Vector2(Random.Range(-1f, 1f) * 1f, Random.value * 2f + 2f);
             if (GameComps.Fallers.Has(gameObject)) {
