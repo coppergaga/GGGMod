@@ -114,7 +114,7 @@ namespace GGGMod.AnimalFarm {
             int count = RefreshAnimalCount();
             int extra = count - (int)UserMaxCapacity;
             if (extra >= 0) {                // 移除范围内多余小动物
-                DetectAnimals();            // 检测 宽9*高8 范围内是否有小动物
+                DetectAnimals();            // 检测 宽9*高5 范围内是否有小动物
                 DatafyAndDestroy(extra);    // 数据化小动物和蛋
             }
             else {                          // 补充缺少的小动物
@@ -169,7 +169,7 @@ namespace GGGMod.AnimalFarm {
                     Util.KDestroyGameObject(pick.gameObject);
                 }
                 else {
-                    if (removedCnt >= extraCount) { break; }
+                    if (removedCnt >= extraCount) { continue; }
                     data.type |= StoredFlags.Animal;
                     var age = Db.Get().Amounts.Age.Lookup(pick.gameObject);
                     if (age != null) { data.age = age.value; }
@@ -230,7 +230,7 @@ namespace GGGMod.AnimalFarm {
             storedAnimals.Clear();
         }
         private void DropFilterd() {
-            SupplementAnimals(8, true);
+            SupplementAnimals(int.MaxValue, true);
             isNeedCheckFilter = false;
         }
 
@@ -257,7 +257,7 @@ namespace GGGMod.AnimalFarm {
             }
             CatchOrSupplementAnimals();
 
-            int animalCnt = storedAnimals.FindAll(sd => sd.IsAnimal).Count;
+            int animalCnt = storedAnimals.FindAll(StoredData.AnimalPredicate).Count;
             _animalNumStr = animalCnt.ToString();
             _eggNumStr = (storedAnimals.Count - animalCnt).ToString();
             if (selectableCmp.IsSelected) {

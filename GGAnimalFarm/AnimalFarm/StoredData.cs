@@ -72,6 +72,10 @@ namespace GGGMod.AnimalFarm {
             }
         }
 
+        public static bool AnimalPredicate(StoredData sd) {
+            return sd.IsAnimal;
+        }
+
         public void SpawnAnimal(Vector3 position) {
             if (!IsAnimal) { return; }
             position.z = Grid.GetLayerZ(Grid.SceneLayer.Creatures);
