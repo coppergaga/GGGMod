@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using KMod;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -9,6 +11,7 @@ namespace GGGMod.BuildableWildPlant {
         public static string gModPath;
         public override void OnLoad(Harmony harmony) {
             base.OnLoad(harmony);
+            Settings.Init();
             gModPath = mod.ContentPath;
             if (TryFind(typeof(Localization), "Initialize", out var method1)) {
                 harmony.Patch(method1, postfix: new HarmonyMethod(typeof(PatchManager), nameof(PatchManager.Localization_Initialize_Patch)));
@@ -72,5 +75,50 @@ namespace GGGMod.BuildableWildPlant {
             }
             ModUtil.AddBuildingToPlanScreen(category, buildingID, subcategoryID);
         }
+    }
+
+    public static class Settings {
+        public static float[] constractionsMass;
+        public static void Init() {
+            string modPath = KMod.Manager.GetDirectory();
+            string settingPath = Path.Combine(modPath, SETTINGS_FINENAME);
+            if (!File.Exists(settingPath)) {
+                DefaultInit();
+                return;
+            }
+            try {
+                string json = File.ReadAllText(settingPath);
+                var settingMaps = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+                if (settingMaps == null) {
+                    DefaultInit();
+                    string dj = JsonConvert.SerializeObject(new Dictionary<string, string>() { { CONSTRACTIONS_MASS_KEY, "400" } }, Formatting.Indented);
+                    File.WriteAllText(settingPath, dj);
+                }
+                else {
+                    if (settingMaps.TryGetValue(CONSTRACTIONS_MASS_KEY, out string sValue)
+                        && float.TryParse(sValue, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out var fValue)
+                        ) {
+                        if (fValue > 0 && fValue < float.MaxValue) { constractionsMass = new float[1] { fValue }; }
+                    }
+                    else { DefaultInit(); }
+                }
+            }
+            catch (IOException e) { // 处理磁盘空间不足、文件被占用等 IO 问题
+                Debug.LogError($"[Mod:AnimalFarm] 保存失败 - IO异常 (磁盘空间或权限): {e.Message}");
+            }
+            catch (System.UnauthorizedAccessException e) { // 处理系统权限拦截
+                Debug.LogError($"[Mod:AnimalFarm] 保存失败 - 拒绝访问 (权限不足): {e.Message}");
+            }
+            catch (System.Exception e) { // 捕获其他所有未预料的错误，防止游戏闪退
+                Debug.LogError($"[Mod:AnimalFarm] 保存时发生未知错误: {e.GetType()}\n{e.StackTrace}");
+            }
+        }
+
+        private static void DefaultInit() {
+            constractionsMass = new float[1] { 400f };
+        }
+
+        private static readonly string SETTINGS_FINENAME = "config/ggg_bwp_modsettings.json";
+        private static readonly string CONSTRACTIONS_MASS_KEY = "constractions_mass";
     }
 }

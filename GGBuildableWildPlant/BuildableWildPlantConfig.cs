@@ -9,7 +9,7 @@ namespace GGGMod.BuildableWildPlant {
         public override BuildingDef CreateBuildingDef() {
             var buildingdef = BuildingTemplates.CreateBuildingDef(
                 ID, 1, 1, "ggplanttile_kanim", 30, 30f,
-                TUNING.BUILDINGS.CONSTRUCTION_MASS_KG.TIER4,
+                Settings.constractionsMass,
                 TUNING.MATERIALS.FARMABLE,
                 1600f,
                 BuildLocationRule.Anywhere,
