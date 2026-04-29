@@ -87,14 +87,16 @@ namespace GGGMod.AnimalFarm {
         public static float dailyShearMultiplier;
 
         public static void Init() {
-            string settingPath = ModCachePath();
+            string settingPath = ModConfigPath();
             if (File.Exists(settingPath)) {
                 try {
                     string json = File.ReadAllText(settingPath);
                     var settingMaps = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
                     if (settingMaps == null) {
                         DefaultInit();
-                        WriteDefaultSettings();
+                        // Write Default Settings;
+                        string dj = JsonConvert.SerializeObject(SS, Formatting.Indented);
+                        File.WriteAllText(ModConfigPath(), dj);
                     }
                     else {
                         waterConsumeKgPerSenond = TryGetSettings(settingMaps, WATERKEY, false);
@@ -120,7 +122,7 @@ namespace GGGMod.AnimalFarm {
         }
 
         private static float TryGetSettings(Dictionary<string, string> map, string key, bool mustGreaterThanZero) {
-            if (map.TryGetValue(WATERKEY, out string sValue) &&
+            if (map.TryGetValue(key, out string sValue) &&
                 float.TryParse(sValue, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out var fValue)) {
                 if (!mustGreaterThanZero) { return fValue; }
                 if (mustGreaterThanZero && fValue > 0) { return fValue; }
@@ -136,29 +138,11 @@ namespace GGGMod.AnimalFarm {
             dailyShearMultiplier = DefaultSettings[SHEARKEY];
         }
 
-        private static void WriteDefaultSettings() {
-            try {
-                string json = JsonConvert.SerializeObject(SS, Formatting.Indented);
-                File.WriteAllText(ModCachePath(), json);
-            }
-            catch (IOException e) { // 处理磁盘空间不足、文件被占用等 IO 问题
-                Debug.LogError($"[Mod:AnimalFarm] 保存失败 - IO异常 (磁盘空间或权限): {e.Message}");
-            }
-            catch (System.UnauthorizedAccessException e) { // 处理系统权限拦截
-                Debug.LogError($"[Mod:AnimalFarm] 保存失败 - 拒绝访问 (权限不足): {e.Message}");
-            }
-            catch (System.Exception e) { // 捕获其他所有未预料的错误，防止游戏闪退
-                Debug.LogError($"[Mod:AnimalFarm] 保存时发生未知错误: {e.GetType()}\n{e.StackTrace}");
-            }
+        private static string ModConfigPath() {
+            return Path.Combine(KMod.Manager.GetDirectory(), SETTINGS_FINENAME);
         }
 
-        private static string ModCachePath() {
-            string saveFilePath = SaveLoader.GetActiveSaveFilePath();
-            string folder = Path.GetDirectoryName(saveFilePath);
-            return Path.Combine(folder, SETTINGS_FINENAME);
-        }
-
-        private static readonly string SETTINGS_FINENAME = "ggg_animalfarm_modsettings.json";
+        private static readonly string SETTINGS_FINENAME = "config/ggg_animalfarm_modsettings.json";
         private static readonly string WATERKEY = "water_consume_kg_per_senond";
         private static readonly string TOXICKEY = "toxic_sand_convert_kg_per_senond";
         private static readonly string POWERKEY = "power_consume";

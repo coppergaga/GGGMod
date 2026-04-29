@@ -54,5 +54,8 @@
   <ItemGroup>
     <Content Include="GameValue\CaloriesAndDietInfo.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="GameValue\ggg_animalfarm_modsettings.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

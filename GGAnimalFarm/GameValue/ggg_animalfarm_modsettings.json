@@ -1,0 +1,7 @@
+﻿{
+  "water_consume_kg_per_senond": "1",
+  "toxic_sand_convert_kg_per_senond": "0.2",
+  "power_consume": "1200",
+  "daily_poop_multiplier": "1",
+  "daily_shear_multiplier": "1"
+}
