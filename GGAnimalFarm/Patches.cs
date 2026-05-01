@@ -139,10 +139,10 @@ namespace GGGMod.AnimalFarm {
         }
 
         private static string ModConfigPath() {
-            return Path.Combine(KMod.Manager.GetDirectory(), SETTINGS_FINENAME);
+            return Path.Combine(Util.RootFolder(), "mods", "config", SETTINGS_FINENAME);
         }
 
-        private static readonly string SETTINGS_FINENAME = "config/ggg_animalfarm_modsettings.json";
+        private static readonly string SETTINGS_FINENAME = "ggg_animalfarm_modsettings.json";
         private static readonly string WATERKEY = "water_consume_kg_per_senond";
         private static readonly string TOXICKEY = "toxic_sand_convert_kg_per_senond";
         private static readonly string POWERKEY = "power_consume";

@@ -80,8 +80,7 @@ namespace GGGMod.BuildableWildPlant {
     public static class Settings {
         public static float[] constractionsMass;
         public static void Init() {
-            string modPath = KMod.Manager.GetDirectory();
-            string settingPath = Path.Combine(modPath, SETTINGS_FINENAME);
+            string settingPath = Path.Combine(Util.RootFolder(), "mods", "config", SETTINGS_FINENAME);
             if (!File.Exists(settingPath)) {
                 DefaultInit();
                 return;
@@ -118,7 +117,7 @@ namespace GGGMod.BuildableWildPlant {
             constractionsMass = new float[1] { 400f };
         }
 
-        private static readonly string SETTINGS_FINENAME = "config/ggg_bwp_modsettings.json";
+        private static readonly string SETTINGS_FINENAME = "ggg_bwp_modsettings.json";
         private static readonly string CONSTRACTIONS_MASS_KEY = "constractions_mass";
     }
 }
