@@ -113,11 +113,14 @@ namespace GGGMod.AnimalFarm {
             // 检测小动物数量
             int count = RefreshAnimalCount();
             int extra = count - (int)UserMaxCapacity;
-            if (extra >= 0) {                // 移除范围内多余小动物
+            if (extra >= 0) {                // 移除范围内多余的小动物和蛋
                 DetectAnimals();            // 检测 宽9*高5 范围内是否有小动物
                 DatafyAndDestroy(extra);    // 数据化小动物和蛋
             }
             else {                          // 补充缺少的小动物
+                // 小动物数量不足时, 收取房间内所有小动物蛋
+                // 防止出现农场无法补充小动物时小动物蛋过多造成的拥挤debuff
+                if (cavityInfoCache.eggs.Count > 0) { DatafyAllEggs(); }
                 SupplementAnimals(Math.Abs(extra), false);
             }
         }
@@ -143,6 +146,19 @@ namespace GGGMod.AnimalFarm {
                 ret[i] = sd;
             }
             ret.RemoveAll(StoredData.ShouldDelete);
+        }
+
+        private void DatafyAllEggs() {
+            var eggs = cavityInfoCache.eggs;
+            for (int i = 0; i < eggs.Count; i++) {
+                var eg = eggs[i];
+                var data = new StoredData() { prefabTag = eg.PrefabTag, };
+                data.type |= StoredFlags.Egg;
+                var incubation = Db.Get().Amounts.Incubation.Lookup(eg.gameObject);
+                data.incubation = (incubation != null) ? incubation.value : 0f;
+                storedAnimals.Add(data);
+                Util.KDestroyGameObject(eg.gameObject);
+            }
         }
 
         private void DatafyAndDestroy(int extraCount) {
