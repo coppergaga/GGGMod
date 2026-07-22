@@ -261,7 +261,7 @@ namespace GGGMod.AnimalFarm {
             if (SpeedControlScreen.Instance.GetSpeed() > 1 && ++_skipper % 2 == 0) { _skipper = 0; return; }
 
             if (isNeedUpdateNewDay) {
-                simHelper.SimStoreData(storedAnimals, IncubationEffect);
+                simHelper.SimStoreData();
                 simHelper.SpawnAnimalDrop();
                 isNeedUpdateNewDay = false;
                 return;

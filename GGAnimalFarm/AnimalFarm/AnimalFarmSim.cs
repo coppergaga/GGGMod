@@ -19,8 +19,10 @@ namespace GGGMod.AnimalFarm {
         private const float DAILY_PROBABLY_DROP_MULTIPLIER_FIX = 0.2f;
         private const float DAILY_POOP_MULTIPLIER_FIX = 0.5f;
 
-        public void SimStoreData(List<StoredData> storedAnimals, float incubationEffect) {
+        public void SimStoreData() {
             bool hasButcher = false;
+            var storedAnimals = master.StoredDatas;
+            var incubationEffect = master.IncubationEffect;
             for (int i = 0; i < storedAnimals.Count; i++) {
                 var sd = storedAnimals[i];
                 if (sd.IsAnimal) {
@@ -120,20 +122,29 @@ namespace GGGMod.AnimalFarm {
                 }
 
                 if (!GetDynamicProbability(uptime)) { continue; }
-                // haven't handled: Bee, Moo (can't bagged), Mole, MoleDelicacy
+
                 if (mShearDropsCache.TryGetValue(adultPrefabTag, out var shearDropsTuple)) {
                     SpawnDailyProbablyDrop(animalNum, shearDropsTuple);
                 }
                 else if (!mCannotShearCache.Contains(adultPrefabTag)) {
                     var animalPrefab = Assets.GetPrefab(adultPrefabTag);
+                    var egmd = animalPrefab.GetDef<ElementGrowthMonitor.Def>();
                     var sgmd = animalPrefab.GetDef<ScaleGrowthMonitor.Def>();
                     var wfsd = animalPrefab.GetDef<WellFedShearable.Def>();
-                    if (sgmd == null && wfsd == null) { mCannotShearCache.Add(adultPrefabTag); continue; }
+                    if (egmd == null && sgmd == null && wfsd == null) { mCannotShearCache.Add(adultPrefabTag); continue; }
+                    // egmd list: MoleDelicacy
                     // sgmd list: Drecko, DreckoPlastic
                     // wfsd list: WoodDeer, GlassDeer, IceBelly, GoldBelly, Raptor
-                    var sheardrops = wfsd == null
-                        ? new Tuple<Tag, float>(sgmd.itemDroppedOnShear, sgmd.dropMass)
-                        : new Tuple<Tag, float>(wfsd.itemDroppedOnShear, wfsd.dropMass);
+                    Tuple<Tag, float> sheardrops;
+                    if (!(egmd == null)) {
+                        sheardrops = new Tuple<Tag, float>(egmd.itemDroppedOnShear, egmd.dropMass);
+                    }
+                    else if (!(sgmd == null)) {
+                        sheardrops = new Tuple<Tag, float>(sgmd.itemDroppedOnShear, sgmd.dropMass);
+                    }
+                    else {
+                        sheardrops = new Tuple<Tag, float>(wfsd.itemDroppedOnShear, wfsd.dropMass);
+                    }
                     mShearDropsCache[adultPrefabTag] = sheardrops;
                     SpawnDailyProbablyDrop(animalNum, sheardrops);
                 }

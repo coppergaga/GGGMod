@@ -178,7 +178,25 @@ namespace GGGMod.AnimalFarm {
                     mInfoMaps[adultPrefabTag] = adultInfos;
                 }
             }
+            ManualAddInfo();
             FormattedInfoLog();
+        }
+
+        /*
+         * 手动添加没有蛋的动物信息
+         */
+        private readonly string[] _noEggAnimals = new string[] { MooConfig.ID, DieselMooConfig.ID, BeeConfig.ID };
+        private void ManualAddInfo() {
+            for (int i = 0; i < _noEggAnimals.Length; i++) {
+                var go = Assets.GetPrefab(_noEggAnimals[i]);
+                if (!go.TryGetComponent<KPrefabID>(out var prefabID)) { continue; }
+                var name = prefabID.PrefabTag.Name;
+                var adultModifiers = go.GetComponent<Klei.AI.Modifiers>();
+                var maxAge = 0f;
+                if (adultModifiers != null) { maxAge = adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Age.maxAttribute); }
+                var infos = new string[] { name, name, name, "0", maxAge.ToString(), "-1", go.GetProperName() };
+                mInfoMaps[name] = infos;
+            }
         }
 
         public string ModCachePath() {
