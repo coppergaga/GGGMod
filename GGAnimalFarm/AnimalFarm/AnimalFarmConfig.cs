@@ -19,10 +19,6 @@ namespace GGGMod.AnimalFarm {
                 buildingdef.EnergyConsumptionWhenActive = AnimalFarmSettings.powerConsume;
                 buildingdef.PowerInputOffset = new CellOffset(1, 0);
             }
-            if (AnimalFarmSettings.waterConsumeKgPerSenond > 0) {
-                buildingdef.UtilityInputOffset = new CellOffset(1, 1);
-                buildingdef.InputConduitType = ConduitType.Liquid;
-            }
             buildingdef.LogicInputPorts = LogicOperationalController.CreateSingleInputPortList(new CellOffset(-1, 0));
             buildingdef.Floodable = false;
             buildingdef.Overheatable = false;
@@ -43,24 +39,6 @@ namespace GGGMod.AnimalFarm {
             storage.showDescriptor = false;
             storage.storageFilters = TUNING.STORAGEFILTERS.BAGABLE_CREATURES;
 
-            if (AnimalFarmSettings.waterConsumeKgPerSenond > 0) {
-                ConduitConsumer conduitConsumer = go.AddOrGet<ConduitConsumer>();
-                conduitConsumer.conduitType = ConduitType.Liquid;
-                conduitConsumer.consumptionRate = Mathf.Clamp(AnimalFarmSettings.waterConsumeKgPerSenond + 2, 2f, 10f);
-                conduitConsumer.capacityKG = 20f;
-                conduitConsumer.capacityTag = ElementLoader.FindElementByHash(SimHashes.Water).tag;
-                conduitConsumer.wrongElementResult = ConduitConsumer.WrongElementResult.Dump;
-
-                ElementConverter elementConverter = go.AddOrGet<ElementConverter>();
-                elementConverter.consumedElements = new ElementConverter.ConsumedElement[1] {
-                    new ElementConverter.ConsumedElement(ElementLoader.FindElementByHash(SimHashes.Water).tag, AnimalFarmSettings.waterConsumeKgPerSenond)
-                };
-                if (AnimalFarmSettings.toxicSandConvertKgPerSenond > 0) {
-                    elementConverter.outputElements = new ElementConverter.OutputElement[1] {
-                        new ElementConverter.OutputElement(AnimalFarmSettings.toxicSandConvertKgPerSenond, SimHashes.ToxicSand, 243.15f, useEntityTemperature: false, storeOutput: false)
-                    };
-                }
-            }
             go.AddOrGet<TreeFilterable>().dropIncorrectOnFilterChange = false;
             RoomTracker roomTracker = go.AddOrGet<RoomTracker>();
             roomTracker.requiredRoomType = Db.Get().RoomTypes.CreaturePen.Id;
@@ -87,7 +65,7 @@ namespace GGGMod.AnimalFarm {
             rangeVisualizer.RangeMin.x = -AnimalFarm.detectRangeX;
             rangeVisualizer.RangeMax.x = AnimalFarm.detectRangeX;
             rangeVisualizer.RangeMin.y = 0;
-            rangeVisualizer.RangeMax.y = AnimalFarm.detectRangeY;
+            rangeVisualizer.RangeMax.y = AnimalFarm.detectRangeY - 1;
             rangeVisualizer.BlockingTileVisible = true;
         }
     }

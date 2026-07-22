@@ -80,8 +80,6 @@ namespace GGGMod.AnimalFarm {
     }
 
     public class AnimalFarmSettings {
-        public static float waterConsumeKgPerSenond;
-        public static float toxicSandConvertKgPerSenond;
         public static float powerConsume;
         public static float dailyPoopMultiplier;
         public static float dailyShearMultiplier;
@@ -99,9 +97,7 @@ namespace GGGMod.AnimalFarm {
                         File.WriteAllText(ModConfigPath(), dj);
                     }
                     else {
-                        waterConsumeKgPerSenond = TryGetSettings(settingMaps, WATERKEY, false);
-                        toxicSandConvertKgPerSenond = TryGetSettings(settingMaps, TOXICKEY, false);
-                        powerConsume = TryGetSettings(settingMaps, POWERKEY, false);
+                        powerConsume = TryGetSettings(settingMaps, POWERKEY, true);
                         dailyPoopMultiplier = TryGetSettings(settingMaps, POOOPKEY, true);
                         dailyShearMultiplier = TryGetSettings(settingMaps, SHEARKEY, true);
                     }
@@ -131,8 +127,6 @@ namespace GGGMod.AnimalFarm {
         }
 
         private static void DefaultInit() {
-            waterConsumeKgPerSenond = DefaultSettings[WATERKEY];
-            toxicSandConvertKgPerSenond = DefaultSettings[TOXICKEY];
             powerConsume = DefaultSettings[POWERKEY];
             dailyPoopMultiplier = DefaultSettings[POOOPKEY];
             dailyShearMultiplier = DefaultSettings[SHEARKEY];
@@ -143,15 +137,11 @@ namespace GGGMod.AnimalFarm {
         }
 
         private static readonly string SETTINGS_FINENAME = "ggg_animalfarm_modsettings.json";
-        private static readonly string WATERKEY = "water_consume_kg_per_senond";
-        private static readonly string TOXICKEY = "toxic_sand_convert_kg_per_senond";
         private static readonly string POWERKEY = "power_consume";
         private static readonly string POOOPKEY = "daily_poop_multiplier";
         private static readonly string SHEARKEY = "daily_shear_multiplier";
 
         public static Dictionary<string, float> DefaultSettings = new Dictionary<string, float> {
-            { WATERKEY, 1f },
-            { TOXICKEY, 0.2f },
             { POWERKEY, 1200f },
             { POOOPKEY, 1f },
             { SHEARKEY, 1f },
