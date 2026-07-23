@@ -12,9 +12,11 @@ namespace GGGMod.AnimalFarm {
         private readonly Dictionary<Tag, Dictionary<string, float>> mButcherDropsCache = new Dictionary<Tag, Dictionary<string, float>>();
         private readonly Dictionary<Tag, List<Tuple<Tag, float>>> mDailyPoopsCache = new Dictionary<Tag, List<Tuple<Tag, float>>>();
         private readonly Dictionary<Tag, Tuple<Tag, float>> mShearDropsCache = new Dictionary<Tag, Tuple<Tag, float>>();
+        private readonly Dictionary<Tag, Tuple<SimHashes, float>> mMilkDropsCache = new Dictionary<Tag, Tuple<SimHashes, float>>();
         private readonly HashSet<Tag> mCannotButchCache = new HashSet<Tag>();
         private readonly HashSet<Tag> mCannotDropCache = new HashSet<Tag>();
         private readonly HashSet<Tag> mCannotShearCache = new HashSet<Tag>();
+        private readonly HashSet<Tag> mCannotMilkCache = new HashSet<Tag>();
 
         private const float DAILY_PROBABLY_DROP_MULTIPLIER_FIX = 0.2f;
         private const float DAILY_POOP_MULTIPLIER_FIX = 0.5f;
@@ -89,71 +91,51 @@ namespace GGGMod.AnimalFarm {
             foreach (var kvp in mDropsRec) {
                 if (kvp.Value <= 0) { continue; }
                 var adultPrefabTag = kvp.Key; var animalNum = kvp.Value;
-                if (mDailyPoopsCache.TryGetValue(adultPrefabTag, out var poopsList)) {
-                    BatchSpawnDailyPoops(animalNum, poopsList, multiplier);
-                }
-                else if (!mCannotDropCache.Contains(adultPrefabTag)) {
-                    var adultPrefab = Assets.GetPrefab(adultPrefabTag);
-                    var ccmd = adultPrefab.GetDef<CreatureCalorieMonitor.Def>();
-                    // 没有食谱的直接记录不会产东西
-                    if (ccmd == null || ccmd.diet == null) { mCannotDropCache.Add(adultPrefabTag); continue; }
-                    var adultModifiers = adultPrefab.GetComponent<Klei.AI.Modifiers>();
-                    if (adultModifiers != null) {
-                        var caloriesDelta = adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Calories.deltaAttribute);
-                        var produceList = new List<Tuple<Tag, float>>();
-                        for (int i = 0; i < ccmd.diet.infos.Length; i++) {
-                            var dietInfo = ccmd.diet.infos[i];
-                            if (dietInfo.producedElement != Tag.Invalid && -1 == produceList.FindIndex(t=> t.first == dietInfo.producedElement)) {
-                                float produceMassKg = Mathf.Round(Mathf.Abs(caloriesDelta) * 600f / dietInfo.caloriesPerKg * dietInfo.producedConversionRate * DAILY_POOP_MULTIPLIER_FIX * AnimalFarmSettings.dailyPoopMultiplier);
-                                produceList.Add(new Tuple<Tag, float>(dietInfo.producedElement, produceMassKg));
-                            }
-                        }
-                        if (produceList.Count > 0) {
-                            mDailyPoopsCache[adultPrefabTag] = produceList;
-                            BatchSpawnDailyPoops(animalNum, produceList, multiplier);
-                        }
-                        else {  // 遍历完食谱后发现没有产出(比如发光虫)的也直接记录不会产东西
-                            mCannotDropCache.Add(adultPrefabTag);
-                        }
-                    }
-                    else {
-                        Debug.Log("[AnimalFarm] WARNING: can't calculate a proper produce list");
-                    }
-                }
+                TryBatchSpawnDailyPoops(adultPrefabTag, animalNum, multiplier);
 
                 if (!GetDynamicProbability(uptime)) { continue; }
 
-                if (mShearDropsCache.TryGetValue(adultPrefabTag, out var shearDropsTuple)) {
-                    SpawnDailyProbablyDrop(animalNum, shearDropsTuple);
-                }
-                else if (!mCannotShearCache.Contains(adultPrefabTag)) {
-                    var animalPrefab = Assets.GetPrefab(adultPrefabTag);
-                    var egmd = animalPrefab.GetDef<ElementGrowthMonitor.Def>();
-                    var sgmd = animalPrefab.GetDef<ScaleGrowthMonitor.Def>();
-                    var wfsd = animalPrefab.GetDef<WellFedShearable.Def>();
-                    if (egmd == null && sgmd == null && wfsd == null) { mCannotShearCache.Add(adultPrefabTag); continue; }
-                    // egmd list: MoleDelicacy
-                    // sgmd list: Drecko, DreckoPlastic
-                    // wfsd list: WoodDeer, GlassDeer, IceBelly, GoldBelly, Raptor
-                    Tuple<Tag, float> sheardrops;
-                    if (!(egmd == null)) {
-                        sheardrops = new Tuple<Tag, float>(egmd.itemDroppedOnShear, egmd.dropMass);
-                    }
-                    else if (!(sgmd == null)) {
-                        sheardrops = new Tuple<Tag, float>(sgmd.itemDroppedOnShear, sgmd.dropMass);
-                    }
-                    else {
-                        sheardrops = new Tuple<Tag, float>(wfsd.itemDroppedOnShear, wfsd.dropMass);
-                    }
-                    mShearDropsCache[adultPrefabTag] = sheardrops;
-                    SpawnDailyProbablyDrop(animalNum, sheardrops);
-                }
+                TrySpawnDailyProbablyDrop(adultPrefabTag, animalNum, multiplier);
+                TrySpawnMilkDrop(adultPrefabTag, animalNum, multiplier);
             }
             foreach (var kvp in mGrownDropsRec) {
                 SpawnGrownDrop(kvp.Value, AwfulDropDict[kvp.Key.Name]);
             }
+
             ClearDrops();
         }
+
+        private void TrySpawnMilkDrop(Tag adultPrefabTag, int animalNum, float multiplier) {
+            if (mMilkDropsCache.TryGetValue(adultPrefabTag, out var milkDropsTuple)) {
+                SpawnMilkDrop(animalNum, milkDropsTuple, multiplier);
+                return;
+            }
+            if (mCannotMilkCache.Contains(adultPrefabTag)) { return; }
+            var adultPrefab = Assets.GetPrefab(adultPrefabTag);
+            if (adultPrefab == null) { return; }
+            var mpmd = adultPrefab.GetDef<MilkProductionMonitor.Def>();
+            var fsd = adultPrefab.GetDef<FertilityShearable.Def>();
+            if (mpmd == null && fsd == null) { mCannotMilkCache.Add(adultPrefabTag); return; }
+            // mpmd list: Moo, DieselMoo, Squid
+            // fsd  list: SeaHorse
+            Tuple<SimHashes, float> milkDrops;
+            if (!(mpmd == null)) {
+                milkDrops = new Tuple<SimHashes, float>(mpmd.element, mpmd.Capacity * DAILY_PROBABLY_DROP_MULTIPLIER_FIX);
+            }
+            else {
+                milkDrops = new Tuple<SimHashes, float>(fsd.milkElement, fsd.dropMass * DAILY_PROBABLY_DROP_MULTIPLIER_FIX);
+            }
+            mMilkDropsCache[adultPrefabTag] = milkDrops;
+            SpawnMilkDrop(animalNum, milkDrops, multiplier);
+        }
+
+        // 挤奶产出
+        private void SpawnMilkDrop(int animalNum, Tuple<SimHashes, float> milkDropTuple, float multiplier) {
+            float dropMass = Mathf.Round(milkDropTuple.second * animalNum * multiplier);
+            master.StorageCmp.AddLiquid(milkDropTuple.first, dropMass, master.Temperature, byte.MaxValue, 0);
+            master.StorageCmp.DropAll();
+        }
+
         // 屠宰产出
         private void SpawnButcherDrop(Dictionary<string, float> dropsKV, float multiplier = 1f) {
             int num = 0;
@@ -175,6 +157,42 @@ namespace GGGMod.AnimalFarm {
             }
         }
 
+        private void TryBatchSpawnDailyPoops(Tag adultPrefabTag, int animalNum, float multiplier) {
+            if (mDailyPoopsCache.TryGetValue(adultPrefabTag, out var poopsList)) {
+                BatchSpawnDailyPoops(animalNum, poopsList, multiplier);
+                return;
+            }
+            if (mCannotDropCache.Contains(adultPrefabTag)) { return; }
+            var adultPrefab = Assets.GetPrefab(adultPrefabTag);
+            if (adultPrefab == null) { return; }
+            var ccmd = adultPrefab.GetDef<CreatureCalorieMonitor.Def>();
+            // 没有食谱的直接记录不会产东西
+            if (ccmd == null || ccmd.diet == null) { mCannotDropCache.Add(adultPrefabTag); return; }
+            var adultModifiers = adultPrefab.GetComponent<Klei.AI.Modifiers>();
+            if (adultModifiers != null) {
+                var caloriesDelta = adultModifiers.GetPreModifiedAttributeValue(Db.Get().Amounts.Calories.deltaAttribute);
+                var produceList = new List<Tuple<Tag, float>>();
+                // 来自Diet构造函数Diet(params Info[] infos)的逻辑
+                for (int i = 0; i < ccmd.diet.infos.Length; i++) {
+                    var dietInfo = ccmd.diet.infos[i];
+                    if (dietInfo.producedElement != Tag.Invalid && -1 == produceList.FindIndex(t => t.first == dietInfo.producedElement)) {
+                        float produceMassKg = Mathf.Round(Mathf.Abs(caloriesDelta) * 600f / dietInfo.caloriesPerKg * dietInfo.producedConversionRate * DAILY_POOP_MULTIPLIER_FIX * AnimalFarmSettings.dailyPoopMultiplier);
+                        produceList.Add(new Tuple<Tag, float>(dietInfo.producedElement, produceMassKg));
+                    }
+                }
+                if (produceList.Count > 0) {
+                    mDailyPoopsCache[adultPrefabTag] = produceList;
+                    BatchSpawnDailyPoops(animalNum, produceList, multiplier);
+                }
+                else {  // 遍历完食谱后发现没有产出(比如发光虫)的也直接记录不会产东西
+                    mCannotDropCache.Add(adultPrefabTag);
+                }
+            }
+            else {
+                Debug.Log("[AnimalFarm] WARNING: can't calculate a proper produce list");
+            }
+        }
+
         // 每日产出
         private void BatchSpawnDailyPoops(int animalNum, List<Tuple<Tag, float>> producedList, float multiplier) {
             float cnt = (float)producedList.Count;
@@ -182,6 +200,35 @@ namespace GGGMod.AnimalFarm {
             for (int i = 0; i < producedList.Count; i++) {
                 SpawnDailyPoop(animalNum, producedList[i], multiplier / cnt);
             }
+        }
+
+        private void TrySpawnDailyProbablyDrop(Tag adultPrefabTag, int animalNum, float multiplier) {
+            if (mShearDropsCache.TryGetValue(adultPrefabTag, out var shearDropsTuple)) {
+                SpawnDailyProbablyDrop(animalNum, shearDropsTuple);
+                return;
+            }
+            if (mCannotShearCache.Contains(adultPrefabTag)) { return; }
+            var animalPrefab = Assets.GetPrefab(adultPrefabTag);
+            if (animalPrefab == null) { return; }
+            var egmd = animalPrefab.GetDef<ElementGrowthMonitor.Def>();
+            var sgmd = animalPrefab.GetDef<ScaleGrowthMonitor.Def>();
+            var wfsd = animalPrefab.GetDef<WellFedShearable.Def>();
+            if (egmd == null && sgmd == null && wfsd == null) { mCannotShearCache.Add(adultPrefabTag); return; }
+            // egmd list: MoleDelicacy
+            // sgmd list: Drecko, DreckoPlastic
+            // wfsd list: WoodDeer, GlassDeer, IceBelly, GoldBelly, Raptor
+            Tuple<Tag, float> sheardrops;
+            if (!(egmd == null)) {
+                sheardrops = new Tuple<Tag, float>(egmd.itemDroppedOnShear, egmd.dropMass);
+            }
+            else if (!(sgmd == null)) {
+                sheardrops = new Tuple<Tag, float>(sgmd.itemDroppedOnShear, sgmd.dropMass);
+            }
+            else {
+                sheardrops = new Tuple<Tag, float>(wfsd.itemDroppedOnShear, wfsd.dropMass);
+            }
+            mShearDropsCache[adultPrefabTag] = sheardrops;
+            SpawnDailyProbablyDrop(animalNum, sheardrops);
         }
 
         // 每日概率掉落(原先剪毛逻辑)

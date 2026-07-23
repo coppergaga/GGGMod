@@ -15,7 +15,7 @@ namespace GGGMod.AnimalFarm {
             }
         }
 
-        private const string INFO_VERSION = "100005";
+        private const string INFO_VERSION = "100006";
         private const string INFO_HEADER = "ggg_info_header";
         private static readonly string FILENAME = "ggg_animalfarm_moddata.json";
         

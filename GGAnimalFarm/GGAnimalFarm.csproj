@@ -45,6 +45,7 @@
     <Compile Include="AnimalFarm\AnimalFarm.cs" />
     <Compile Include="AnimalFarm\AnimalFarmConfig.cs" />
     <Compile Include="AnimalFarm\AnimalFarmSim.cs" />
+    <Compile Include="AnimalFarm\FishpodConfig.cs" />
     <Compile Include="AnimalFarm\InfoManager.cs" />
     <Compile Include="AnimalFarm\StoredData.cs" />
     <Compile Include="Patches.cs" />

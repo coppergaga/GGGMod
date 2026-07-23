@@ -9,6 +9,11 @@ namespace GGGMod.AnimalFarm {
                     public static LocString DESC = "A farm that auto manage your extra animals";
                     public static LocString EFFECT = "Animals in it will work and produce items every day";
                 }
+                public static class GGFISHPOD {
+                    public static LocString NAME = OUI.FormatAsLink("Fishpod", FishpodConfig.ID);
+                    public static LocString DESC = "A fishpod that auto manage your extra fishes";
+                    public static LocString EFFECT = "Fishes in it will work and produce items every day";
+                }
             }
         }
 
@@ -16,7 +21,7 @@ namespace GGGMod.AnimalFarm {
             public static class STATUSITEMS {
                 public static class GGANIMALFARM {
                     public static LocString NAME = "{0} animal(s), {1} egg(s)";
-                    public static LocString TOOLTIP = "Your fantanstic animal farm";
+                    public static LocString TOOLTIP = "Your fantanstic animal farm / fishpod";
                 }
             }
         }

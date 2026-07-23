@@ -32,6 +32,7 @@ namespace GGGMod.AnimalFarm {
             go.AddOrGet<Operational>();
 
             var storage = go.AddComponent<Storage>();
+            storage.capacityKg = 99999999f;
             storage.showInUI = true;
             storage.allowItemRemoval = false;
             storage.allowSettingOnlyFetchMarkedItems = false;
@@ -40,13 +41,13 @@ namespace GGGMod.AnimalFarm {
             storage.storageFilters = TUNING.STORAGEFILTERS.BAGABLE_CREATURES;
 
             go.AddOrGet<TreeFilterable>().dropIncorrectOnFilterChange = false;
-            RoomTracker roomTracker = go.AddOrGet<RoomTracker>();
-            roomTracker.requiredRoomType = Db.Get().RoomTypes.CreaturePen.Id;
-            roomTracker.requirement = RoomTracker.Requirement.Required;
         }
 
         public override void DoPostConfigureComplete(GameObject go) {
             go.AddOrGet<LogicOperationalController>();
+            RoomTracker roomTracker = go.AddOrGet<RoomTracker>();
+            roomTracker.requiredRoomType = Db.Get().RoomTypes.CreaturePen.Id;
+            roomTracker.requirement = RoomTracker.Requirement.Required;
             go.AddOrGet<AnimalFarm>();
             AddVisualizer(go);
         }

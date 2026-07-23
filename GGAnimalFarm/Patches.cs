@@ -57,6 +57,8 @@ namespace GGGMod.AnimalFarm {
         public static void Db_Initialize_Postfix() {
             AddBuildingToTech("AnimalControl", AnimalFarmConfig.ID);
             AddPlanScreen("Food", "GGGMod", AnimalFarmConfig.ID);
+            AddBuildingToTech("AnimalControl", FishpodConfig.ID);
+            AddPlanScreen("Food", "GGGMod", FishpodConfig.ID);
         }
 
         public static void AddBuildingToTech(string techID, string buildingID) {

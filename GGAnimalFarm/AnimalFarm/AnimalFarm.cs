@@ -15,13 +15,17 @@ namespace GGGMod.AnimalFarm {
         [MyCmpGet] private Operational operationalCmp;
         [MyCmpGet] private PrimaryElement primaryElementCmp;
         [MyCmpGet] private KSelectable selectableCmp;
+        [MyCmpGet] private Storage storageCmp;
+
+        public FarmType FType = FarmType.LandCreatures;
+        public Storage StorageCmp => storageCmp;
 
         private static StatusItem MyStatusItem;
         private static StatusItemCategory MyStatusCategory = new StatusItemCategory("GGAnimalFarm", Db.Get().StatusItemCategories, "Farm Capacity");
 
         public const int detectRangeX = 4;
         public const int detectRangeY = 5;
-        private static readonly CellOffset cavityOffset = new CellOffset(0, 1);
+
         private static readonly List<Tag> ignoredTags = new List<Tag>() { 
             GameTags.Stored, GameTags.PickupableStorage, GameTags.Trapped, GameTags.StoredPrivate, GameTags.Dead,
             GameTags.Creatures.Bagged, GameTags.Creatures.Die,
@@ -29,7 +33,7 @@ namespace GGGMod.AnimalFarm {
 
         private bool isNeedUpdateNewDay = false;
         private bool isNeedCheckFilter = false;
-        private int cavityCell;
+
         private CavityInfo cavityInfoCache;
         private readonly HashSet<Tag> cachedAcceptedTags = new HashSet<Tag>();
         private readonly List<Pickupable> pickupables = new List<Pickupable>();
@@ -67,7 +71,6 @@ namespace GGGMod.AnimalFarm {
         protected override void OnSpawn() {
             base.OnSpawn();
             int cell = Grid.PosToCell(this);
-            cavityCell = Grid.OffsetCell(cell, cavityOffset);
             UpLeftCellPos = Grid.CellUpLeft(cell);
             UpRightCellPos = Grid.CellUpRight(cell);
             UpCellPos = Grid.CellAbove(cell);
@@ -106,15 +109,17 @@ namespace GGGMod.AnimalFarm {
         }
 
         private void CatchOrSupplementAnimals() {
-            cavityInfoCache = Game.Instance.roomProber.GetCavityForCell(cavityCell);
+            cavityInfoCache = Game.Instance.roomProber.GetCavityForCell(UpCellPos);
             if (cavityInfoCache == null) { return; }
             // 检测是否为畜舍
             if (cavityInfoCache.room == null || cavityInfoCache.room.roomType != Db.Get().RoomTypes.CreaturePen) { return; }
             // 检测小动物数量
             int count = RefreshAnimalCount();
             int extra = count - (int)UserMaxCapacity;
-            if (extra >= 0) {                // 移除范围内多余的小动物和蛋
-                DetectAnimals();            // 检测 宽9*高5 范围内是否有小动物
+            //warn: 通常情况下房间内的动物数量不会多于设置值, 所以补充的逻辑也就是else里的会更经常执行
+            //warn: 目前来看else中的逻辑还是非常高效的
+            if (extra > 0) {                // 移除范围内多余的小动物和蛋
+                DetectAnimals();            // 检测 农场宽9*高5 或者 整个水池 范围内是否有小动物
                 DatafyAndDestroy(extra);    // 数据化小动物和蛋
             }
             else {                          // 补充缺少的小动物
@@ -200,14 +205,28 @@ namespace GGGMod.AnimalFarm {
 
         private void DetectAnimals() {
             pickupables.Clear();
-            Grid.CellToXY(cavityCell, out int x, out int y);
-            GameScenePartitioner.Instance.VisitEntries(
-                x - detectRangeX, y - 1,
-                detectRangeX * 2 + 1, detectRangeY,
-                GameScenePartitioner.Instance.pickupablesLayer,
-                AsyncUpdateVisitor,
-                this
-            );
+            switch (FType) {
+                case FarmType.SwimmingCreatures:
+                    var creaturePrefabIDs = cavityInfoCache.creatures;
+                    for (int i = 0; i < creaturePrefabIDs.Count; i++) {
+                        if (creaturePrefabIDs[i].TryGetComponent<Pickupable>(out var c)) { pickupables.Add(c); }
+                    }
+                    var eggPrefabIDs = cavityInfoCache.eggs;
+                    for (int i = 0;i < eggPrefabIDs.Count; i++) {
+                        if (eggPrefabIDs[i].TryGetComponent<Pickupable>(out var e)) { pickupables.Add(e); }
+                    }
+                    break;
+                default:
+                    Grid.CellToXY(UpCellPos, out int x, out int y);
+                    GameScenePartitioner.Instance.VisitEntries(
+                        x - detectRangeX, y - 1,
+                        detectRangeX * 2 + 1, detectRangeY,
+                        GameScenePartitioner.Instance.pickupablesLayer,
+                        AsyncUpdateVisitor,
+                        this
+                    );
+                    break;
+            }
         }
         private bool IsPickupableRelevantToMyInterests(KPrefabID prefabID, int storage_cell) {
             // 优先检查是否已经有复制人来拿
@@ -348,6 +367,10 @@ namespace GGGMod.AnimalFarm {
                     .EventTransition(GameHashes.OperationalChanged, off, (smi) => !smi.master.operationalCmp.IsOperational)
                     .Exit(smi => { smi.master.operationalCmp.SetActive(false); });
             }
+        }
+
+        public enum FarmType {
+            LandCreatures, SwimmingCreatures
         }
     }
 }
