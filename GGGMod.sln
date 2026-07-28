@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTemplete", "CodeTemplet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGAnimalFarm", "GGAnimalFarm\GGAnimalFarm.csproj", "{1C8460AC-F777-45E6-8D33-68AAA0B0E4CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGCooler", "GGCooler\GGCooler.csproj", "{47BC677D-A1FA-488A-8215-1B77D9A1E0F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1C8460AC-F777-45E6-8D33-68AAA0B0E4CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C8460AC-F777-45E6-8D33-68AAA0B0E4CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C8460AC-F777-45E6-8D33-68AAA0B0E4CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47BC677D-A1FA-488A-8215-1B77D9A1E0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47BC677D-A1FA-488A-8215-1B77D9A1E0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47BC677D-A1FA-488A-8215-1B77D9A1E0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47BC677D-A1FA-488A-8215-1B77D9A1E0F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
