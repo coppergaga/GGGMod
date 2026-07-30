@@ -142,4 +142,24 @@ namespace GGGMod.SuperiorCooler {
             return list;
         }
     }
+
+    public class SuperiorCoolerAnimController : GameStateMachine<SuperiorCoolerAnimController, SuperiorCoolerAnimController.Instance, IStateMachineTarget, SuperiorCoolerAnimController.Def> {
+        public class Def : BaseDef { }
+        public new class Instance : GameInstance {
+            public Instance(IStateMachineTarget master, Def def) : base(master, def) { }
+        }
+
+        public State off;
+        public State on;
+
+        public override void InitializeStates(out BaseState default_state) {
+            default_state = off;
+            off.PlayAnim("off")
+                    .EventTransition(GameHashes.OperationalChanged, on, (smi) => smi.GetComponent<Operational>().IsOperational);
+            on.PlayAnim("on")
+                .Enter(smi => { smi.GetComponent<Operational>().SetActive(true); })
+                .EventTransition(GameHashes.OperationalChanged, off, (smi) => !smi.GetComponent<Operational>().IsOperational)
+                .Exit(smi => { smi.GetComponent<Operational>().SetActive(false); });
+        }
+    }
 }

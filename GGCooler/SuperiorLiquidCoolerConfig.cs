@@ -46,7 +46,7 @@ namespace GGGMod.SuperiorCooler {
 
         public override void DoPostConfigureComplete(GameObject go) {
             go.AddOrGet<LogicOperationalController>();
-            go.AddOrGetDef<PoweredActiveController.Def>();
+            go.AddOrGetDef<SuperiorCoolerAnimController.Def>();
             go.GetComponent<KPrefabID>().AddTag(GameTags.OverlayBehindConduits);
         }
 
