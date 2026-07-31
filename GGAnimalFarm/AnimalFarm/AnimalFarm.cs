@@ -159,6 +159,8 @@ namespace GGGMod.AnimalFarm {
                 var eg = eggs[i];
                 var data = new StoredData() { prefabTag = eg.PrefabTag, };
                 data.type |= StoredFlags.Egg;
+
+                if (eg.gameObject == null) { continue; }    // 出现过这里获取失败的crash, 原因不明, 暂时先这样保护一下
                 var incubation = Db.Get().Amounts.Incubation.Lookup(eg.gameObject);
                 data.incubation = (incubation != null) ? incubation.value : 0f;
                 storedAnimals.Add(data);
@@ -177,6 +179,8 @@ namespace GGGMod.AnimalFarm {
                 var data = new StoredData() {
                     prefabTag = prefabID.PrefabTag,
                 };
+
+                if (pick.gameObject == null) { continue; }  // 原因同DatafyAllEggs方法
                 var wildness = Db.Get().Amounts.Wildness.Lookup(pick.gameObject);
                 if (wildness != null && wildness.value > 0) {
                     data.type |= StoredFlags.Wild;
