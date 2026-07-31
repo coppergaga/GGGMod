@@ -160,11 +160,11 @@ namespace GGGMod.AnimalFarm {
                 var data = new StoredData() { prefabTag = eg.PrefabTag, };
                 data.type |= StoredFlags.Egg;
 
-                if (eg.gameObject == null) { continue; }    // 出现过这里获取失败的crash, 原因不明, 暂时先这样保护一下
-                var incubation = Db.Get().Amounts.Incubation.Lookup(eg.gameObject);
+                if (!TryGetGameObj(eg, out GameObject egGo)) { continue; }  // 出现过这里获取失败的crash, 原因不明, 暂时先这样保护一下
+                var incubation = Db.Get().Amounts.Incubation.Lookup(egGo);
                 data.incubation = (incubation != null) ? incubation.value : 0f;
                 storedAnimals.Add(data);
-                Util.KDestroyGameObject(eg.gameObject);
+                Util.KDestroyGameObject(egGo);
             }
         }
 
@@ -180,28 +180,28 @@ namespace GGGMod.AnimalFarm {
                     prefabTag = prefabID.PrefabTag,
                 };
 
-                if (pick.gameObject == null) { continue; }  // 原因同DatafyAllEggs方法
-                var wildness = Db.Get().Amounts.Wildness.Lookup(pick.gameObject);
+                if (!TryGetGameObj(pick, out GameObject pickGo)) { continue; }  // 原因同DatafyAllEggs方法
+                var wildness = Db.Get().Amounts.Wildness.Lookup(pickGo);
                 if (wildness != null && wildness.value > 0) {
                     data.type |= StoredFlags.Wild;
                     data.wildness = wildness.value;
                 }
                 if (prefabID.HasTag(GameTags.Egg)) {    // 不区分蛋的种类直接拿走
                     data.type |= StoredFlags.Egg;
-                    var incubation = Db.Get().Amounts.Incubation.Lookup(pick.gameObject);
+                    var incubation = Db.Get().Amounts.Incubation.Lookup(pickGo);
                     data.incubation = (incubation != null) ? incubation.value : 0f;
                     storedAnimals.Add(data);
-                    Util.KDestroyGameObject(pick.gameObject);
+                    Util.KDestroyGameObject(pickGo);
                 }
                 else {
                     if (removedCnt >= extraCount) { continue; }
                     data.type |= StoredFlags.Animal;
-                    var age = Db.Get().Amounts.Age.Lookup(pick.gameObject);
+                    var age = Db.Get().Amounts.Age.Lookup(pickGo);
                     if (age != null) { data.age = age.value; }
                     else { data.age = 0f; }
 
                     storedAnimals.Add(data);
-                    Util.KDestroyGameObject(pick.gameObject);
+                    Util.KDestroyGameObject(pickGo);
                     removedCnt++;
                 }
             }
@@ -375,6 +375,18 @@ namespace GGGMod.AnimalFarm {
 
         public enum FarmType {
             LandCreatures, SwimmingCreatures
+        }
+
+        public static bool TryGetGameObj(Component comp, out GameObject go) {
+            go = null;
+            if (comp == null) { return false; }
+            try {
+                var obj = comp.gameObject;
+                if (obj == null) return false;
+                go = obj;
+                return true;
+            }
+            catch (NullReferenceException) { return false; }
         }
     }
 }
