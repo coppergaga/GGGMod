@@ -65,7 +65,11 @@ namespace GGGMod.AnimalFarm {
             int ret = wa.CompareTo(wb);
             if (ret != 0) { return ret; }
             if ((lhs.type & StoredFlags.Animal) != 0) { // 年龄降序
-                return rhs.age.CompareTo(lhs.age);
+                var ta = lhs.IsThreshold();
+                var tb = rhs.IsThreshold();
+                if (ta && tb) { return rhs.age.CompareTo(lhs.age); }     // 都成年就年龄降序
+                if (!ta && !tb) { return lhs.age.CompareTo(rhs.age); }   // 都是幼仔就年龄升序
+                return ta ? 1 : -1;   // 成年的排在幼仔后面
             }
             else {    // 孵化度升序
                 return lhs.incubation.CompareTo(rhs.incubation);
