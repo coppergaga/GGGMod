@@ -160,7 +160,7 @@ namespace GGGMod.AnimalFarm {
                 var data = new StoredData() { prefabTag = eg.PrefabTag, };
                 data.type |= StoredFlags.Egg;
 
-                if (!TryGetGameObj(eg, out GameObject egGo)) { continue; }  // 出现过这里获取失败的crash, 原因不明, 暂时先这样保护一下
+                if (!gg_TryGetGameObject(eg, out GameObject egGo)) { continue; }  // 出现过这里获取失败的crash, 原因不明, 暂时先这样保护一下
                 var incubation = Db.Get().Amounts.Incubation.Lookup(egGo);
                 data.incubation = (incubation != null) ? incubation.value : 0f;
                 storedAnimals.Add(data);
@@ -180,7 +180,7 @@ namespace GGGMod.AnimalFarm {
                     prefabTag = prefabID.PrefabTag,
                 };
 
-                if (!TryGetGameObj(pick, out GameObject pickGo)) { continue; }  // 原因同DatafyAllEggs方法
+                if (!gg_TryGetGameObject(pick, out GameObject pickGo)) { continue; }  // 原因同DatafyAllEggs方法
                 var wildness = Db.Get().Amounts.Wildness.Lookup(pickGo);
                 if (wildness != null && wildness.value > 0) {
                     data.type |= StoredFlags.Wild;
@@ -213,11 +213,17 @@ namespace GGGMod.AnimalFarm {
                 case FarmType.SwimmingCreatures:
                     var creaturePrefabIDs = cavityInfoCache.creatures;
                     for (int i = 0; i < creaturePrefabIDs.Count; i++) {
-                        if (creaturePrefabIDs[i].TryGetComponent<Pickupable>(out var c)) { pickupables.Add(c); }
+                        if (gg_TryGetGameObject(creaturePrefabIDs[i], out var go) &&
+                            go.TryGetComponent<Pickupable>(out var c) ) {
+                            pickupables.Add(c);
+                        }
                     }
                     var eggPrefabIDs = cavityInfoCache.eggs;
                     for (int i = 0;i < eggPrefabIDs.Count; i++) {
-                        if (eggPrefabIDs[i].TryGetComponent<Pickupable>(out var e)) { pickupables.Add(e); }
+                        if (gg_TryGetGameObject(eggPrefabIDs[i], out var go) &&
+                            go.TryGetComponent<Pickupable>(out var e)) {
+                            pickupables.Add(e);
+                        }
                     }
                     break;
                 default:
@@ -377,7 +383,7 @@ namespace GGGMod.AnimalFarm {
             LandCreatures, SwimmingCreatures
         }
 
-        public static bool TryGetGameObj(Component comp, out GameObject go) {
+        public static bool gg_TryGetGameObject(Component comp, out GameObject go) {
             go = null;
             if (comp == null) { return false; }
             try {
