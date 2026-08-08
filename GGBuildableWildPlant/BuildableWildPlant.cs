@@ -71,6 +71,7 @@ namespace GGGMod.BuildableWildPlant {
                 BuildableWildPlant component = gameObject.GetComponent<BuildableWildPlant>();
                 if (!(component == null)) {
                     UserMaxCapacity = component.UserMaxCapacity;
+                    isAutoPlant = component.isAutoPlant;
                 }
             }
         }
