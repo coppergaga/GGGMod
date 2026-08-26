@@ -7,10 +7,11 @@ namespace GGGMod.BuildableWildPlant {
         public const string ID = "GgBuildableWildPlant";
         private readonly static List<Tag> m_storageFilters = new List<Tag> { GameTags.Seed };
         public override BuildingDef CreateBuildingDef() {
+            var m_materials = new string[1] { $"{TUNING.MATERIALS.FARMABLE[0]}&{TUNING.MATERIALS.RAW_MINERALS_OR_METALS[0]}" };
             var buildingdef = BuildingTemplates.CreateBuildingDef(
                 ID, 1, 1, "ggplanttile_kanim", 30, 30f,
                 Settings.constractionsMass,
-                TUNING.MATERIALS.FARMABLE,
+                m_materials,
                 1600f,
                 BuildLocationRule.Anywhere,
                 noise: TUNING.NOISE_POLLUTION.NONE,

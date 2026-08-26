@@ -114,7 +114,7 @@ namespace GGGMod.BuildableWildPlant {
         }
 
         private static void DefaultInit() {
-            constractionsMass = new float[1] { 400f };
+            constractionsMass = new float[1] { 100f };
         }
 
         private static readonly string SETTINGS_FINENAME = "ggg_bwp_modsettings.json";

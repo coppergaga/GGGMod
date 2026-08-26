@@ -1,4 +1,5 @@
 ﻿using KSerialization;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GGGMod.BuildableWildPlant {
@@ -98,6 +99,7 @@ namespace GGGMod.BuildableWildPlant {
             }
         }
 
+        private static Vector3 _backwallPlantOffset = new Vector3(0.01f, 0f, -0.5f);
         public void Sim1000ms(float dt) {
             if (!isAutoPlant || isDestroying) { return; }
             if (storage == null || storage.IsEmpty()) { return; }
@@ -107,35 +109,71 @@ namespace GGGMod.BuildableWildPlant {
             if (plantableSeed == null) { return; }
 
             int cell = Grid.PosToCell(transform.GetPosition());
-            int plantCell =
-                (plantableSeed.Direction != SingleEntityReceptacle.ReceptacleDirection.Bottom)
-                ? Grid.CellAbove(cell)
-                : Grid.CellBelow(cell);
-            if (!Grid.IsValidCell(plantCell)) { return; }
-            if (Grid.Foundation[plantCell]) { return; }
 
-            isDestroying = true;
-            var element = GetComponent<PrimaryElement>();
-            SimMessages.ReplaceElement(cell, element.ElementID, null, 400f, element.Temperature);
-
-            GameScheduler.Instance.Schedule("BuildableWildPlant", 0.6f, (_) => {
-                if (gameObject == null) { return; } // it means the building has been destroyed before plant the plant
-                if (plantableSeed == null) { return;  }
-                Vector3 pos = Grid.CellToPosCBC(plantCell, Grid.SceneLayer.BuildingFront);
-                GameObject go = GameUtil.KInstantiate(Assets.GetPrefab(plantableSeed.PlantID), pos, Grid.SceneLayer.BuildingFront);
-                MutantPlant comp = go.GetComponent<MutantPlant>();
-                if (comp != null) { plantableSeed.GetComponent<MutantPlant>().CopyMutationsTo(comp); }
-                go.SetActive(value: true);
-
-                Pickupable pickupable = plantableSeed.GetComponent<Pickupable>().TakeUnit(1f);
-                if (pickupable != null) {
-                    Util.KDestroyGameObject(pickupable.gameObject);
-                    Util.KDestroyGameObject(gameObject);
+            var prefabID = firstItem.GetComponent<KPrefabID>();
+            if (prefabID.HasTag(GameTags.BackwallSeed)) {   // 需要背景墙的2*2大小的植物
+                bool isPosInvalid = false;
+                var testCellList = new List<int> { cell, Grid.CellRight(cell), Grid.CellAbove(cell), Grid.CellUpRight(cell) };
+                foreach (int testCell in testCellList) {
+                    if (!Grid.IsValidCell(testCell) || Grid.Foundation[testCell]) { isPosInvalid = true; break; }
                 }
-                else {
-                    KCrashReporter.Assert(condition: false, "Seed has fractional total amount < 1f");
+
+                if (isPosInvalid) { return; }
+                isDestroying = true;
+                var material = GetComponent<PrimaryElement>();
+                var materialMass = Mathf.Floor(Settings.constractionsMass[0] / 4f);
+                foreach (int testCell in testCellList) {
+                    if (BackwallManager.HasBackwall(testCell)) { continue; }
+                    SimMessages.SetBackwallData(testCell, material.Element.idx, materialMass, material.Temperature);
                 }
-            });
+                GameScheduler.Instance.Schedule("BuildableWildPlant", 0.6f, (_) => {
+                    if (gameObject == null) { return; } // it means the building has been destroyed before plant the plant
+                    if (plantableSeed == null) { return; }
+                    var pos = transform.GetPosition() + _backwallPlantOffset;
+                    GameObject go = GameUtil.KInstantiate(Assets.GetPrefab(plantableSeed.PlantID), pos, Grid.SceneLayer.BuildingFront);
+                    MutantPlant comp = go.GetComponent<MutantPlant>();
+                    if (comp != null) { plantableSeed.GetComponent<MutantPlant>().CopyMutationsTo(comp); }
+                    go.SetActive(value: true);
+
+                    Pickupable pickupable = plantableSeed.GetComponent<Pickupable>().TakeUnit(1f);
+                    if (pickupable != null) {
+                        Util.KDestroyGameObject(pickupable.gameObject);
+                        Util.KDestroyGameObject(gameObject);
+                    }
+                    else {
+                        KCrashReporter.Assert(condition: false, "Seed has fractional total amount < 1f");
+                    }
+                });
+            }
+            else {  // 常规植物
+                bool isDirectionTop = plantableSeed.Direction != SingleEntityReceptacle.ReceptacleDirection.Bottom;
+                int plantCell = isDirectionTop ? Grid.CellAbove(cell) : Grid.CellBelow(cell);
+                if (!Grid.IsValidCell(plantCell)) { return; }
+                if (Grid.Foundation[plantCell]) { return; }
+
+                isDestroying = true;
+                var element = GetComponent<PrimaryElement>();
+                SimMessages.ReplaceElement(cell, element.ElementID, null, Settings.constractionsMass[0], element.Temperature);
+
+                GameScheduler.Instance.Schedule("BuildableWildPlant", 0.6f, (_) => {
+                    if (gameObject == null) { return; } // it means the building has been destroyed before plant the plant
+                    if (plantableSeed == null) { return;  }
+                    Vector3 pos = Grid.CellToPosCBC(plantCell, Grid.SceneLayer.BuildingFront);
+                    GameObject go = GameUtil.KInstantiate(Assets.GetPrefab(plantableSeed.PlantID), pos, Grid.SceneLayer.BuildingFront);
+                    MutantPlant comp = go.GetComponent<MutantPlant>();
+                    if (comp != null) { plantableSeed.GetComponent<MutantPlant>().CopyMutationsTo(comp); }
+                    go.SetActive(value: true);
+
+                    Pickupable pickupable = plantableSeed.GetComponent<Pickupable>().TakeUnit(1f);
+                    if (pickupable != null) {
+                        Util.KDestroyGameObject(pickupable.gameObject);
+                        Util.KDestroyGameObject(gameObject);
+                    }
+                    else {
+                        KCrashReporter.Assert(condition: false, "Seed has fractional total amount < 1f");
+                    }
+                });
+            }
         }
     }
 }
