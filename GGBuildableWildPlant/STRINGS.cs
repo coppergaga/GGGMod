@@ -21,5 +21,12 @@ namespace GGGMod.BuildableWildPlant {
                 }
             }
         }
+        public static class UI {
+            public static class UISIDESCREENS {
+                public static class SEEDSELECTORSIDESCREEN {
+                    public static LocString GGSEEDSELECTOR = "Select Seed";
+                }
+            }
+        }
     }
 }

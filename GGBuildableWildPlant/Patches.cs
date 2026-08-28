@@ -19,12 +19,14 @@ namespace GGGMod.BuildableWildPlant {
             if (TryFind(typeof(Db), "Initialize", out var method)) {
                 harmony.Patch(method, postfix: new HarmonyMethod(typeof(PatchManager), nameof(PatchManager.Db_Initialize_Postfix)));
             }
+            if (TryFind(typeof(DetailsScreen), "OnPrefabInit", out var method2)) {
+                harmony.Patch(method2, postfix: new HarmonyMethod(typeof(SideScreenPatcher), nameof(SideScreenPatcher.DetailsScreen_OnPrefabInit_Patch)));
+            }
         }
 
         private bool TryFind(Type clazz, string methodName, out MethodInfo method) {
             try {
-                method = clazz.GetMethod(methodName,
-                    BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+                method = clazz.GetMethod(methodName, BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
                 if (method != null) { return true; }
                 else {
                     Debug.LogWarningFormat("Unable to find method {0} on type {1}", methodName, clazz.FullName);
@@ -51,6 +53,7 @@ namespace GGGMod.BuildableWildPlant {
                 }
             }
             LocString.CreateLocStringKeys(typeof(GGGMod.BuildableWildPlant.STRINGS.BUILDINGS));
+            LocString.CreateLocStringKeys(typeof(GGGMod.BuildableWildPlant.STRINGS.UI));
         }
         public static void Db_Initialize_Postfix() {
             AddBuildingToTech("Agriculture", BuildableWildPlantConfig.ID);

@@ -35,6 +35,7 @@
     <Compile Include="BuildableWildPlant.cs" />
     <Compile Include="BuildableWildPlantConfig.cs" />
     <Compile Include="Patches.cs" />
+    <Compile Include="SeedSelectorSideScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STRINGS.cs" />
   </ItemGroup>

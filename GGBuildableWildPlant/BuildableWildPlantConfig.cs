@@ -1,11 +1,9 @@
 ﻿using STRINGS;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GGGMod.BuildableWildPlant {
     public class BuildableWildPlantConfig : IBuildingConfig {
         public const string ID = "GgBuildableWildPlant";
-        private readonly static List<Tag> m_storageFilters = new List<Tag> { GameTags.Seed };
         public override BuildingDef CreateBuildingDef() {
             var m_materials = new string[1] { $"{TUNING.MATERIALS.FARMABLE[0]}&{TUNING.MATERIALS.RAW_MINERALS_OR_METALS[0]}" };
             var buildingdef = BuildingTemplates.CreateBuildingDef(
@@ -17,6 +15,9 @@ namespace GGGMod.BuildableWildPlant {
                 noise: TUNING.NOISE_POLLUTION.NONE,
                 decor: TUNING.BUILDINGS.DECOR.NONE
             );
+            buildingdef.ObjectLayer = ObjectLayer.Backwall;
+            buildingdef.SceneLayer = Grid.SceneLayer.Backwall;
+            buildingdef.ForegroundLayer = Grid.SceneLayer.BuildingBack;
             buildingdef.Floodable = false;
             buildingdef.Overheatable = false;
             buildingdef.AudioCategory = "HollowMetal";
@@ -31,17 +32,8 @@ namespace GGGMod.BuildableWildPlant {
             GeneratedBuildings.MakeBuildingAlwaysOperational(go);
             BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), prefab_tag);
             Prioritizable.AddRef(go);
-            var storage = go.AddOrGet<Storage>();
-            storage.capacityKg = 1f;
-            storage.showInUI = true;
-            storage.allowItemRemoval = false;
-            storage.showDescriptor = true;
-            storage.storageFilters = m_storageFilters;
-            storage.storageFullMargin = TUNING.STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
-            storage.fetchCategory = Storage.FetchCategory.GeneralStorage;
-            storage.showCapacityStatusItem = true;
-            storage.showCapacityAsMainStatus = true;
-            go.AddOrGet<CopyBuildingSettings>().copyGroupTag = GameTags.Seed;
+            BuildingTemplates.CreateDefaultStorage(go).SetDefaultStoredItemModifiers(Storage.StandardSealedStorage);
+            go.AddOrGet<CopyBuildingSettings>().copyGroupTag = GameTags.Farm;
             go.AddOrGet<BuildableWildPlant>();
         }
 
