@@ -29,7 +29,13 @@ namespace GGGMod.AnimalFarm {
         }
 
         private void Build() {
-            headerLabel.SetText(STRINGS.UI.UISIDESCREENS.FARMTRANSFERSIDESCREEN.HEADER);
+            var fromFarm = TransferManager.Inst.TryGetFarmWithID(targetFarmTransfer.FromFarmID);
+            if (fromFarm != null) {
+                headerLabel.SetText(string.Format(STRINGS.UI.UISIDESCREENS.FARMTRANSFERSIDESCREEN.HEADER, fromFarm.SafeProperName));
+            }
+            else {
+                headerLabel.SetText(string.Format(STRINGS.UI.UISIDESCREENS.FARMTRANSFERSIDESCREEN.HEADER, ""));
+            }
             ClearRows();
             int curWorldID = targetFarmTransfer.GetMyWorldId();
             bool isDlc1Enable = DlcManager.IsExpansion1Active();

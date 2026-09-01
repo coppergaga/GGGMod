@@ -41,6 +41,7 @@ namespace GGGMod.AnimalFarm {
             if (room == null) return;
             var temp = "";
             foreach (var prefabID in room.buildings) {
+                if (prefabID.IsNullOrDestroyed()) { continue; }
                 var animalFarm = prefabID.GetComponent<AnimalFarm>();
                 if (animalFarm != null) {
                     temp = animalFarm.UniqueID;
@@ -88,15 +89,22 @@ namespace GGGMod.AnimalFarm {
 
         public void RegisterFarm(AnimalFarm af) {
             _farmsDict[af.UniqueID] = af;
+            TriggerFarmTransferScan();
+        }
+
+        public void UnregisterFarm(AnimalFarm af) {
+            _farmsDict.Remove(af.UniqueID);
+            RemoveFromTo(af.UniqueID);
+            TriggerFarmTransferScan();
+        }
+
+        public void TriggerFarmTransferScan() {
             foreach (var transfer in _transfersList) {
+                if (transfer.IsNullOrDestroyed()) { continue; }
                 if (_farmsDict.ContainsKey(transfer.FromFarmID)) { continue; }
                 transfer.ScanFromAnimalFarms();
                 SetFromTo(transfer.FromFarmID, transfer.ToFarmID);
             }
-        }
-        public void UnregisterFarm(AnimalFarm af) {
-            _farmsDict.Remove(af.UniqueID);
-            RemoveFromTo(af.UniqueID);
         }
 
         public void RegisterTransfer(FarmTransfer ft) {
@@ -125,7 +133,9 @@ namespace GGGMod.AnimalFarm {
         public List<AnimalFarm> AnimalFarmList(AnimalFarm.FarmType typo) {
             _recycleList.Clear();
             if (AnimalFarm.FarmType.None == typo) { return _recycleList; }
-            foreach (var farm in _farmsDict.Values) { if (farm.FType == typo) { _recycleList.Add(farm); } }
+            foreach (var farm in _farmsDict.Values) {
+                if (!farm.IsNullOrDestroyed() && farm.FType == typo) { _recycleList.Add(farm); }
+            }
             return _recycleList;
         }
     }

@@ -36,8 +36,8 @@ namespace GGGMod.AnimalFarm {
         public static class UI {
             public static class UISIDESCREENS {
                 public static class FARMTRANSFERSIDESCREEN {
-                    public static LocString TITLE = "Farm Transfer";
-                    public static LocString HEADER = "Select target";   // 选择目标农场
+                    public static LocString TITLE = "Select target";   // 选择目标农场
+                    public static LocString HEADER = "Binding To: {0}";
                 }
             }
         }
