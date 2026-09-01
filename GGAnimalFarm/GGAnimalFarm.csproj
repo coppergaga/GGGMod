@@ -48,6 +48,9 @@
     <Compile Include="AnimalFarm\FishpodConfig.cs" />
     <Compile Include="AnimalFarm\InfoManager.cs" />
     <Compile Include="AnimalFarm\StoredData.cs" />
+    <Compile Include="FarmTransfer\FarmTransfer.cs" />
+    <Compile Include="FarmTransfer\FarmTransferConfig.cs" />
+    <Compile Include="FarmTransfer\FarmTransferSideScreen.cs" />
     <Compile Include="Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STRINGS.cs" />

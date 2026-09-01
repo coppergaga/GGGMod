@@ -14,6 +14,13 @@ namespace GGGMod.AnimalFarm {
                     public static LocString DESC = "A fishpod that auto manage your extra fishes";
                     public static LocString EFFECT = "Fishes in it will work and produce items every day";
                 }
+                public static class GGFARMTRANSFER {
+                    public static LocString NAME = OUI.FormatAsLink("Farm Transfer", FarmTransferConfig.ID);    // 农场转移点
+                    // 自动将农场或者鱼塘的符合条件的小动物转移到目标农场或者鱼塘
+                    public static LocString DESC = "Automatically transfer the eligible critters from the source AnimalFarm or Fishpond to the target AnimalFarm or Fishpond";
+                    // 通过转移点可以更加方便的自动分类变种小动物
+                    public static LocString EFFECT = "By using the FarmTransfer, it becomes much more convenient to automatically classify and breed the mutant critters";
+                }
             }
         }
 
@@ -22,6 +29,15 @@ namespace GGGMod.AnimalFarm {
                 public static class GGANIMALFARM {
                     public static LocString NAME = "{0} animal(s), {1} egg(s)";
                     public static LocString TOOLTIP = "Your fantanstic animal farm / fishpod";
+                }
+            }
+        }
+
+        public static class UI {
+            public static class UISIDESCREENS {
+                public static class FARMTRANSFERSIDESCREEN {
+                    public static LocString TITLE = "Farm Transfer";
+                    public static LocString HEADER = "Select target";   // 选择目标农场
                 }
             }
         }

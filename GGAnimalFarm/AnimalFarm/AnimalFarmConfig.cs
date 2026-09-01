@@ -41,6 +41,7 @@ namespace GGGMod.AnimalFarm {
             storage.storageFilters = TUNING.STORAGEFILTERS.BAGABLE_CREATURES;
 
             go.AddOrGet<TreeFilterable>().dropIncorrectOnFilterChange = false;
+            go.AddOrGet<UserNameable>();
         }
 
         public override void DoPostConfigureComplete(GameObject go) {
@@ -63,10 +64,10 @@ namespace GGGMod.AnimalFarm {
         private static void AddVisualizer(GameObject prefab) {
             RangeVisualizer rangeVisualizer = prefab.AddOrGet<RangeVisualizer>();
             rangeVisualizer.OriginOffset = new Vector2I(0, 0);
-            rangeVisualizer.RangeMin.x = -AnimalFarm.detectRangeX;
-            rangeVisualizer.RangeMax.x = AnimalFarm.detectRangeX;
+            rangeVisualizer.RangeMin.x = -AnimalFarm.DetectRange.x;
+            rangeVisualizer.RangeMax.x = AnimalFarm.DetectRange.x;
             rangeVisualizer.RangeMin.y = 0;
-            rangeVisualizer.RangeMax.y = AnimalFarm.detectRangeY - 1;
+            rangeVisualizer.RangeMax.y = AnimalFarm.DetectRange.y - 1;
             rangeVisualizer.BlockingTileVisible = true;
         }
     }

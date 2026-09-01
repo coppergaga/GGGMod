@@ -40,6 +40,7 @@ namespace GGGMod.AnimalFarm {
             storage.storageFilters = TUNING.STORAGEFILTERS.SWIMMING_CREATURES;
 
             go.AddOrGet<TreeFilterable>().dropIncorrectOnFilterChange = false;
+            go.AddOrGet<UserNameable>();
         }
 
         public override void DoPostConfigureComplete(GameObject go) {

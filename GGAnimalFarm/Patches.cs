@@ -20,6 +20,9 @@ namespace GGGMod.AnimalFarm {
             if (TryFind(typeof(Db), "Initialize", out var method)) {
                 harmony.Patch(method, postfix: new HarmonyMethod(typeof(PatchManager), nameof(PatchManager.Db_Initialize_Postfix)));
             }
+            if (TryFind(typeof(DetailsScreen), "OnPrefabInit", out var method2)) {
+                harmony.Patch(method2, postfix: new HarmonyMethod(typeof(SideScreenPatcher), nameof(SideScreenPatcher.DetailsScreen_OnPrefabInit_Patch)));
+            }
         }
 
         private bool TryFind(Type clazz, string methodName, out MethodInfo method) {
@@ -53,12 +56,15 @@ namespace GGGMod.AnimalFarm {
             }
             LocString.CreateLocStringKeys(typeof(GGGMod.AnimalFarm.STRINGS.BUILDINGS));
             LocString.CreateLocStringKeys(typeof(GGGMod.AnimalFarm.STRINGS.BUILDING));
+            LocString.CreateLocStringKeys(typeof(GGGMod.AnimalFarm.STRINGS.UI));
         }
         public static void Db_Initialize_Postfix() {
             AddBuildingToTech("AnimalControl", AnimalFarmConfig.ID);
             AddPlanScreen("Food", "GGGMod", AnimalFarmConfig.ID);
             AddBuildingToTech("AnimalControl", FishpodConfig.ID);
             AddPlanScreen("Food", "GGGMod", FishpodConfig.ID);
+            AddBuildingToTech("AnimalControl", FarmTransferConfig.ID);
+            AddPlanScreen("Food", "GGGMod", FarmTransferConfig.ID);
         }
 
         public static void AddBuildingToTech(string techID, string buildingID) {
@@ -85,6 +91,7 @@ namespace GGGMod.AnimalFarm {
         public static float powerConsume;
         public static float dailyPoopMultiplier;
         public static float dailyShearMultiplier;
+        public static bool isGlobalMode;
 
         public static void Init() {
             string settingPath = ModConfigPath();
@@ -102,6 +109,7 @@ namespace GGGMod.AnimalFarm {
                         powerConsume = TryGetSettings(settingMaps, POWERKEY, true);
                         dailyPoopMultiplier = TryGetSettings(settingMaps, POOOPKEY, true);
                         dailyShearMultiplier = TryGetSettings(settingMaps, SHEARKEY, true);
+                        isGlobalMode = TryGetSettings(settingMaps, ISGLOBALKEY, false) > 0;
                     }
                 }
                 catch (IOException e) { // 处理磁盘空间不足、文件被占用等 IO 问题
@@ -142,11 +150,13 @@ namespace GGGMod.AnimalFarm {
         private static readonly string POWERKEY = "power_consume";
         private static readonly string POOOPKEY = "daily_poop_multiplier";
         private static readonly string SHEARKEY = "daily_shear_multiplier";
+        private static readonly string ISGLOBALKEY = "is_global_mode";
 
         public static Dictionary<string, float> DefaultSettings = new Dictionary<string, float> {
             { POWERKEY, 1200f },
             { POOOPKEY, 1f },
             { SHEARKEY, 1f },
+            { ISGLOBALKEY, -1f },
         };
         private static Dictionary<string, string> SS => DefaultSettings.ToDictionary(
                 item => item.Key,

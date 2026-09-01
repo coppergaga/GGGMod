@@ -7,9 +7,14 @@ using UnityEngine;
 
 namespace GGGMod.AnimalFarm {
     [SerializationConfig(MemberSerialization.OptIn)]
-    public class AnimalFarm : StateMachineComponent<AnimalFarm.SMI>, IUserControlledCapacity, IGameObjectEffectDescriptor, ISim4000ms {
+    public partial class AnimalFarm : StateMachineComponent<AnimalFarm.SMI>, IUserControlledCapacity, IGameObjectEffectDescriptor, ISim4000ms {
+        public enum FarmType {
+            LandCreatures, SwimmingCreatures, None
+        }
+
         [Serialize] private List<StoredData> storedAnimals = new List<StoredData>();
         [Serialize] private int animalLimit = 20;
+        [Serialize] private string _uniqueID;
 
         [MyCmpReq] private TreeFilterable filterCmp;
         [MyCmpGet] private Operational operationalCmp;
@@ -18,44 +23,26 @@ namespace GGGMod.AnimalFarm {
         [MyCmpGet] private Storage storageCmp;
 
         public FarmType FType = FarmType.LandCreatures;
-        public Storage StorageCmp => storageCmp;
 
         private static StatusItem MyStatusItem;
         private static StatusItemCategory MyStatusCategory = new StatusItemCategory("GGAnimalFarm", Db.Get().StatusItemCategories, "Farm Capacity");
 
-        public const int detectRangeX = 4;
-        public const int detectRangeY = 5;
+        private static Vector2Int _detectRange = new Vector2Int(4, 5);
 
         private static readonly List<Tag> ignoredTags = new List<Tag>() { 
             GameTags.Stored, GameTags.PickupableStorage, GameTags.Trapped, GameTags.StoredPrivate, GameTags.Dead,
             GameTags.Creatures.Bagged, GameTags.Creatures.Die,
         };
 
-        private bool isNeedUpdateNewDay = false;
+        [Serialize] private bool isNeedUpdateNewDay = false;
         private bool isNeedCheckFilter = false;
 
         private CavityInfo cavityInfoCache;
         private readonly HashSet<Tag> cachedAcceptedTags = new HashSet<Tag>();
         private readonly List<Pickupable> pickupables = new List<Pickupable>();
-        
-        public float Temperature => primaryElementCmp.Temperature;
-        public float IncubationEffect => Mathf.Ceil(40f * operationalCmp.GetLastCycleUptime());
-        public float ProduceEffect => Mathf.Max(1f, 4f * operationalCmp.GetLastCycleUptime());
-        public float LastCycleUptime => operationalCmp.GetLastCycleUptime();
 
-        public int UpLeftCellPos { get; private set; }
-        public int UpRightCellPos { get; private set; }
-        public int UpCellPos { get; private set; }
 
         private AnimalFarmSim simHelper = new AnimalFarmSim();
-
-        public float UserMaxCapacity { get => animalLimit; set => animalLimit = Mathf.RoundToInt(value); }
-        public float AmountStored => storedAnimals.Count;
-        public float MinCapacity => 0f;
-        public float MaxCapacity => 20f;
-        public bool WholeValues => true;
-        public LocString CapacityUnits => UI.UISIDESCREENS.CAPTURE_POINT_SIDE_SCREEN.UNITS_SUFFIX;
-        public bool ControlEnabled() { return true; }
 
         private static readonly Func<object, AnimalFarm, Util.IterationInstruction> AsyncUpdateVisitor = delegate (object obj, AnimalFarm farm) {
             Pickupable pickupable = obj as Pickupable;
@@ -80,12 +67,14 @@ namespace GGGMod.AnimalFarm {
             filterCmp.OnFilterChanged = (Action<HashSet<Tag>>)Delegate.Combine(filterCmp.OnFilterChanged, new Action<HashSet<Tag>>(HandleFilterChanged));
             Subscribe((int)GameHashes.CopySettings, OnCopySettingsDelegate);
             InfoManager.Inst.Setup();
+            TransferManager.Inst.RegisterFarm(this);
             smi.StartSM();
             SetupStorageStatusItems();
         }
 
         protected override void OnCleanUp() {
             DropAll();
+            TransferManager.Inst.UnregisterFarm(this);
             if (GameClock.Instance != null) {
                 GameClock.Instance.Unsubscribe((int)GameHashes.NewDay, HandleNewDay);
             }
@@ -139,9 +128,9 @@ namespace GGGMod.AnimalFarm {
                 if (supplementCnt >= extraCount) { break; }
                 if (ret[i].IsNeedDelete) { continue; }
                 if (!ret[i].IsAnimal) { continue; }
-                // 反选场景: 不使用 选中的小动物类别, 但这个小动物 是 这个类别
+                // 反选场景: 不使用 选中的小动物类别, 但这个小动物 是 这个类别, 用在修改了筛选器后掉落的场景
                 if (reverseFilter && cachedAcceptedTags.Contains(ret[i].PrefabTag)) { continue; }
-                // 正选场景: 使用 选中的小动物类别, 但这个小动物 不是 这个类别
+                // 正选场景: 使用 选中的小动物类别, 但这个小动物 不是 这个类别, 用在正常养殖过程中动物的补充场景
                 if (!reverseFilter && !cachedAcceptedTags.Contains(ret[i].PrefabTag)) { continue; }
 
                 var sd = ret[i];
@@ -160,7 +149,7 @@ namespace GGGMod.AnimalFarm {
                 var data = new StoredData() { prefabTag = eg.PrefabTag, };
                 data.type |= StoredFlags.Egg;
 
-                if (!gg_TryGetGameObject(eg, out GameObject egGo)) { continue; }  // 出现过这里获取失败的crash, 原因不明, 暂时先这样保护一下
+                if (!GG_TryGetGameObject(eg, out GameObject egGo)) { continue; }  // 出现过这里获取失败的crash, 原因不明, 暂时先这样保护一下
                 var incubation = Db.Get().Amounts.Incubation.Lookup(egGo);
                 data.incubation = (incubation != null) ? incubation.value : 0f;
                 storedAnimals.Add(data);
@@ -180,7 +169,7 @@ namespace GGGMod.AnimalFarm {
                     prefabTag = prefabID.PrefabTag,
                 };
 
-                if (!gg_TryGetGameObject(pick, out GameObject pickGo)) { continue; }  // 原因同DatafyAllEggs方法
+                if (!GG_TryGetGameObject(pick, out GameObject pickGo)) { continue; }  // 原因同DatafyAllEggs方法
                 var wildness = Db.Get().Amounts.Wildness.Lookup(pickGo);
                 if (wildness != null && wildness.value > 0) {
                     data.type |= StoredFlags.Wild;
@@ -213,14 +202,14 @@ namespace GGGMod.AnimalFarm {
                 case FarmType.SwimmingCreatures:
                     var creaturePrefabIDs = cavityInfoCache.creatures;
                     for (int i = 0; i < creaturePrefabIDs.Count; i++) {
-                        if (gg_TryGetGameObject(creaturePrefabIDs[i], out var go) &&
+                        if (GG_TryGetGameObject(creaturePrefabIDs[i], out var go) &&
                             go.TryGetComponent<Pickupable>(out var c) ) {
                             pickupables.Add(c);
                         }
                     }
                     var eggPrefabIDs = cavityInfoCache.eggs;
                     for (int i = 0;i < eggPrefabIDs.Count; i++) {
-                        if (gg_TryGetGameObject(eggPrefabIDs[i], out var go) &&
+                        if (GG_TryGetGameObject(eggPrefabIDs[i], out var go) &&
                             go.TryGetComponent<Pickupable>(out var e)) {
                             pickupables.Add(e);
                         }
@@ -229,8 +218,8 @@ namespace GGGMod.AnimalFarm {
                 default:
                     Grid.CellToXY(UpCellPos, out int x, out int y);
                     GameScenePartitioner.Instance.VisitEntries(
-                        x - detectRangeX, y - 1,
-                        detectRangeX * 2 + 1, detectRangeY,
+                        x - DetectRange.x, y - 1,
+                        DetectRange.x * 2 + 1, DetectRange.y,
                         GameScenePartitioner.Instance.pickupablesLayer,
                         AsyncUpdateVisitor,
                         this
@@ -292,6 +281,8 @@ namespace GGGMod.AnimalFarm {
             if (isNeedUpdateNewDay) {
                 simHelper.SimStoreData();
                 simHelper.SpawnAnimalDrop();
+                TransferUnacceptedAnimalsIfNeeded();
+                storedAnimals.Sort(StoredData.EggAnimalAgeDecreased);
                 isNeedUpdateNewDay = false;
                 return;
             }
@@ -306,14 +297,14 @@ namespace GGGMod.AnimalFarm {
             _animalNumStr = animalCnt.ToString();
             _eggNumStr = (storedAnimals.Count - animalCnt).ToString();
             if (selectableCmp.IsSelected) {
-                Game.Instance.userMenu.Refresh(gameObject);
+                Game.Instance.userMenu.Refresh(base.gameObject);
             }
         }
 
         private void HandleCopySettings(object data) {
-            GameObject gameObject = (GameObject)data;
-            if (!(gameObject == null)) {
-                var component = gameObject.GetComponent<AnimalFarm>();
+            GameObject go = (GameObject)data;
+            if (!(go == null)) {
+                var component = go.GetComponent<AnimalFarm>();
                 if (!(component == null)) {
                     UserMaxCapacity = component.UserMaxCapacity;
                 }
@@ -336,6 +327,69 @@ namespace GGGMod.AnimalFarm {
             }
         }
 
+        public class SMI : GameStateMachine<State, SMI, AnimalFarm>.GameInstance {
+            public SMI(AnimalFarm master) : base(master) { }
+        }
+
+        public class State : GameStateMachine<State, SMI, AnimalFarm, object> {
+            public State off;
+            public State on;
+            public override void InitializeStates(out BaseState default_state) {
+                default_state = off;
+                off.PlayAnim("off")
+                    .EventTransition(GameHashes.OperationalChanged, on, (smi) => smi.master.operationalCmp.IsOperational);
+                on.PlayAnim("on")
+                    .Enter(smi => { smi.master.operationalCmp.SetActive(true); })
+                    .EventTransition(GameHashes.OperationalChanged, off, (smi) => !smi.master.operationalCmp.IsOperational)
+                    .Exit(smi => { smi.master.operationalCmp.SetActive(false); });
+            }
+        }
+
+        public static bool GG_TryGetGameObject(Component comp, out GameObject go) {
+            go = null;
+            if (comp == null) { return false; }
+            try {
+                var obj = comp.gameObject;
+                if (obj == null) return false;
+                go = obj;
+                return true;
+            }
+            catch (NullReferenceException) { return false; }
+        }
+    }
+
+    public partial class AnimalFarm {    // readonly fields
+        public List<StoredData> StoredDatas => storedAnimals;
+        public string UniqueID {
+            get {
+                if (string.IsNullOrEmpty(_uniqueID)) { _uniqueID = Guid.NewGuid().ToString(); }
+                return _uniqueID;
+            }
+        }
+        public Storage StorageCmp => storageCmp;
+
+        public static Vector2Int DetectRange => _detectRange;
+        public float Temperature => primaryElementCmp.Temperature;
+        public float IncubationEffect => Mathf.Ceil(40f * operationalCmp.GetLastCycleUptime());
+        public float ProduceEffect => Mathf.Max(1f, 4f * operationalCmp.GetLastCycleUptime());
+        public float LastCycleUptime => operationalCmp.GetLastCycleUptime();
+
+        public int UpLeftCellPos { get; private set; }
+        public int UpRightCellPos { get; private set; }
+        public int UpCellPos { get; private set; }
+    }
+
+    public partial class AnimalFarm {   // IUserControlledCapacity
+        public float UserMaxCapacity { get => animalLimit; set => animalLimit = Mathf.RoundToInt(value); }
+        public float AmountStored => storedAnimals.Count;
+        public float MinCapacity => 0f;
+        public float MaxCapacity => 20f;
+        public bool WholeValues => true;
+        public LocString CapacityUnits => UI.UISIDESCREENS.CAPTURE_POINT_SIDE_SCREEN.UNITS_SUFFIX;
+        public bool ControlEnabled() { return true; }
+    }
+
+    public partial class AnimalFarm {   // IGameObjectEffectDescriptor
         private string _animalNumStr = "0";
         private string _eggNumStr = "0";
 
@@ -358,41 +412,54 @@ namespace GGGMod.AnimalFarm {
             _descripter.Add(d);
             return _descripter;
         }
+    }
 
-        public List<StoredData> StoredDatas => storedAnimals;
-
-        public class SMI : GameStateMachine<State, SMI, AnimalFarm>.GameInstance {
-            public SMI(AnimalFarm master) : base(master) { }
-        }
-
-        public class State : GameStateMachine<State, SMI, AnimalFarm, object> {
-            public State off;
-            public State on;
-            public override void InitializeStates(out BaseState default_state) {
-                default_state = off;
-                off.PlayAnim("off")
-                    .EventTransition(GameHashes.OperationalChanged, on, (smi) => smi.master.operationalCmp.IsOperational);
-                on.PlayAnim("on")
-                    .Enter(smi => { smi.master.operationalCmp.SetActive(true); })
-                    .EventTransition(GameHashes.OperationalChanged, off, (smi) => !smi.master.operationalCmp.IsOperational)
-                    .Exit(smi => { smi.master.operationalCmp.SetActive(false); });
+    public partial class AnimalFarm {   // FarmTransfer support
+        public int SafeMyWorldID {
+            get {
+                if (GG_TryGetGameObject(this, out var go)) { return go.GetMyWorldId(); }
+                return int.MinValue;
             }
         }
+        public string SafeProperName {
+            get {
+                if (GG_TryGetGameObject(this, out var go)) { return go.GetProperName(); }
+                return "";
+            }
+        }
+        private Tuple<Sprite, Color, Tag> _iconInfo;
+        public Tuple<Sprite, Color, Tag> IconInfo {
+            get {
+                if (!cachedAcceptedTags.Any()) { return new Tuple<Sprite, Color, Tag>(Assets.GetSprite("unknown"), Color.grey, Tag.Invalid); }
+                Tag prefabTag = InfoManager.Inst.AdultPrefabTag(cachedAcceptedTags.First());
+                if (_iconInfo == null || _iconInfo.third != prefabTag) {
+                    var image = Def.GetUISprite(prefabTag);
+                    _iconInfo = new Tuple<Sprite, Color, Tag>(image.first, image.second, prefabTag);
+                }
+                return _iconInfo;
+            }
+        }
+        public string SimpleDesc => $"Anml:{_animalNumStr}, Egg:{_eggNumStr}";
 
-        public enum FarmType {
-            LandCreatures, SwimmingCreatures
+        public bool IsAnimalAccepted(Tag adultPrefabTag) {
+            return cachedAcceptedTags.Contains(adultPrefabTag);
         }
 
-        public static bool gg_TryGetGameObject(Component comp, out GameObject go) {
-            go = null;
-            if (comp == null) { return false; }
-            try {
-                var obj = comp.gameObject;
-                if (obj == null) return false;
-                go = obj;
-                return true;
+        public void TransferUnacceptedAnimalsIfNeeded() {
+            if (!simHelper.HasUnacceptedAnimals || TransferManager.Inst.GetToFarm(UniqueID) == null) {
+                return;
             }
-            catch (NullReferenceException) { return false; }
+
+            var targetPos = TransferManager.Inst.GetToFarm(UniqueID).transform.GetPosition();
+            for (int i = storedAnimals.Count - 1; i >= 0; i--) {
+                var sd = storedAnimals[i];
+                if (!sd.IsAnimal) { continue; }
+                if (IsAnimalAccepted(sd.PrefabTag)) { continue; }
+                sd.SpawnAnimal(targetPos);
+                sd.type |= StoredFlags.MarkDelete;
+                storedAnimals[i] = sd;
+            }
+            storedAnimals.RemoveAll(StoredData.ShouldDelete);
         }
     }
 }

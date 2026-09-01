@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace GGGMod.AnimalFarm {
     public class AnimalFarmSim {
+        public bool HasUnacceptedAnimals { get; private set; } = false;
         public AnimalFarm master;
         private readonly Dictionary<Tag, int> mButchersRec = new Dictionary<Tag, int>();
         private readonly Dictionary<Tag, int> mDropsRec = new Dictionary<Tag, int>();
@@ -25,6 +26,7 @@ namespace GGGMod.AnimalFarm {
             bool hasButcher = false;
             var storedAnimals = master.StoredDatas;
             var incubationEffect = master.IncubationEffect;
+            bool hasUnaccepted = false;
             for (int i = 0; i < storedAnimals.Count; i++) {
                 var sd = storedAnimals[i];
                 if (sd.IsAnimal) {
@@ -53,11 +55,14 @@ namespace GGGMod.AnimalFarm {
                     }
                 }
                 storedAnimals[i] = sd;
+                if (!hasUnaccepted && !master.IsAnimalAccepted(InfoManager.Inst.AdultPrefabTag(sd.prefabTag))) {
+                    hasUnaccepted = true;
+                }
             }
             if (hasButcher) {
                 storedAnimals.RemoveAll(StoredData.ShouldButcher);
             }
-            storedAnimals.Sort(StoredData.EggAnimalAgeDecreased);
+            HasUnacceptedAnimals = hasUnaccepted;
         }
 
         private void RecordDrops(Tag prefabTag, Dictionary<Tag, int> ret) {
