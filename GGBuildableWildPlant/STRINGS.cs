@@ -12,7 +12,7 @@ namespace GGGMod.BuildableWildPlant {
             }
 
             public static class BUTTONS {
-                public static class HAULINGPOINT {
+                public static class GGBUILDABLEWILDPLANT {
                     // Auto-Drop
                     public static LocString AUTO_PLANT_ON = "Enable Auto-Plant";
                     public static LocString AUTO_PLANT_ON_TOOLTIP = "If enabled, automatically plant the seed when storage is full";

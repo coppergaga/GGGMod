@@ -190,13 +190,13 @@ namespace GGGMod.BuildableWildPlant {
         private void OnRefreshUserMenu(object data) {
             KIconButtonMenu.ButtonInfo autoDropButton = isAutoPlant
                 ? new KIconButtonMenu.ButtonInfo(
-                    "action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_PLANT_OFF,
+                    "action_empty_contents", STRINGS.BUILDINGS.BUTTONS.GGBUILDABLEWILDPLANT.AUTO_PLANT_OFF,
                     ToggleIsAutoPlant,
-                    Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_PLANT_OFF_TOOLTIP)
+                    Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.GGBUILDABLEWILDPLANT.AUTO_PLANT_OFF_TOOLTIP)
                 : new KIconButtonMenu.ButtonInfo(
-                    "action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_PLANT_ON,
+                    "action_empty_contents", STRINGS.BUILDINGS.BUTTONS.GGBUILDABLEWILDPLANT.AUTO_PLANT_ON,
                     ToggleIsAutoPlant,
-                    Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_PLANT_ON_TOOLTIP);
+                    Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.GGBUILDABLEWILDPLANT.AUTO_PLANT_ON_TOOLTIP);
             Game.Instance.userMenu.AddButton(gameObject, autoDropButton);
         }
 
