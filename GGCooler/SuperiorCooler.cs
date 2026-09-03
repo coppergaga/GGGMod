@@ -5,18 +5,14 @@ using UnityEngine;
 
 namespace GGGMod.SuperiorCooler {
     public class SuperiorCooler : KMonoBehaviour, IGameObjectEffectDescriptor, ISim200ms {
-        [MyCmpReq]
-        private KSelectable selectable;
-        [MyCmpReq]
-        protected Storage storage;
-        [MyCmpReq]
-        protected Operational operational;
-        [MyCmpReq]
-        private ConduitConsumer consumer;
-        [MyCmpReq]
-        private BuildingComplete building;
-        [MyCmpGet]
-        private KBatchedAnimController controller;
+        [MyCmpReq] private KSelectable selectable;
+        [MyCmpReq] protected Storage storage;
+        [MyCmpReq] protected Operational operational;
+        [MyCmpReq] private ConduitConsumer consumer;
+        [MyCmpReq] private BuildingComplete building;
+        [MyCmpGet] private KBatchedAnimController controller;
+
+        [KSerialization.Serialize] private bool shouldProduceHeat = false;
 
         public bool isLiquidConditioner;
 
@@ -24,29 +20,43 @@ namespace GGGMod.SuperiorCooler {
 
         public float maxEnvironmentDelta = -50f;
 
-
+        private HandleVector<int>.Handle structureTemperature;
+        private float lastSampleTime = -1f;
         private int cooledAirOutputCell = -1;
 
         private static readonly EventSystem.IntraObjectHandler<SuperiorCooler> OnOperationalChangedDelegate = new EventSystem.IntraObjectHandler<SuperiorCooler>(delegate (SuperiorCooler component, object data) {
             component.OnOperationalChanged(data);
         });
-
         private static readonly EventSystem.IntraObjectHandler<SuperiorCooler> OnActiveChangedDelegate = new EventSystem.IntraObjectHandler<SuperiorCooler>(delegate (SuperiorCooler component, object data) {
             component.OnActiveChanged(data);
+        });
+        private static readonly EventSystem.IntraObjectHandler<SuperiorCooler> OnRefreshUserMenuDelegate = new EventSystem.IntraObjectHandler<SuperiorCooler>(delegate (SuperiorCooler component, object data) {
+            component.OnRefreshUserMenu(data);
         });
 
         protected override void OnPrefabInit() {
             base.OnPrefabInit();
-            Subscribe(-592767678, OnOperationalChangedDelegate);
-            Subscribe(824508782, OnActiveChangedDelegate);
+            Subscribe((int)GameHashes.OperationalChanged, OnOperationalChangedDelegate);
+            Subscribe((int)GameHashes.ActiveChanged, OnActiveChangedDelegate);
+            Subscribe((int)GameHashes.RefreshUserMenu, OnRefreshUserMenuDelegate);
         }
 
         protected override void OnSpawn() {
             base.OnSpawn();
+            structureTemperature = GameComps.StructureTemperatures.GetHandle(base.gameObject);
             cooledAirOutputCell = building.GetUtilityOutputCell();
         }
 
+        private void OnRefreshUserMenu(object data) {
+            KIconButtonMenu.ButtonInfo produceHeatBtn = (!shouldProduceHeat ?
+                new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.GGSUPERIORCOOLER.TRANSFERHEAT, ToggleHandleHeat, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.GGSUPERIORCOOLER.TRANSFERHEATTOOLTIP) :
+                new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.GGSUPERIORCOOLER.ABSORBHEAT, ToggleHandleHeat, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.GGSUPERIORCOOLER.ABSORBHEATTOOLTIP));
+            Game.Instance.userMenu.AddButton(base.gameObject, produceHeatBtn);
+        }
 
+        private void ToggleHandleHeat() {
+            shouldProduceHeat = !shouldProduceHeat;
+        }
 
         private float lowTempLag;
         private bool showingLowTemp;
@@ -77,14 +87,23 @@ namespace GGGMod.SuperiorCooler {
                     int num4 = (int)((float)component.DiseaseCount * num3);
                     component.Mass -= num2;
                     component.ModifyDiseaseCount(-num4, "GGGSupriorCooler.UpdateState");
-                    float num5 = (num - component.Temperature) * component.Element.specificHeatCapacity * num2;
                     if (isLiquidConditioner && lastElement != component.ElementID) {
                         GameUtil.TintLiquidSymbolOnBuilding("liquid", controller, component.Element);
                     }
 
                     lastElement = component.ElementID;
+                    if (shouldProduceHeat) {
+                        float display_dt = ((lastSampleTime > 0f) ? (Time.time - lastSampleTime) : 1f);
+                        float num5 = (num - component.Temperature) * component.Element.specificHeatCapacity * num2;
+                        GameComps.StructureTemperatures.ProduceEnergy(structureTemperature, 0f - num5, BUILDING.STATUSITEMS.OPERATINGENERGY.PIPECONTENTS_TRANSFER, display_dt);
+                    }
                     break;
                 }
+            }
+
+            if (shouldProduceHeat && Time.time - lastSampleTime > 2f) {
+                GameComps.StructureTemperatures.ProduceEnergy(structureTemperature, 0f, BUILDING.STATUSITEMS.OPERATINGENERGY.PIPECONTENTS_TRANSFER, Time.time - lastSampleTime);
+                lastSampleTime = Time.time;
             }
 
             operational.SetActive(value);
